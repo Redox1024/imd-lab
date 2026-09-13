@@ -13,7 +13,12 @@ export function doiValue(value){
 }
 export function findJournal(paper,journals=[]){const codes=issns(paper.issn),name=normalizeTitle(paper.venue);const matches=journals.filter(j=>codes.length&&issns(j.issn).some(x=>codes.includes(x)));if(matches.length===1)return matches[0];if(matches.length>1)return matches.sort((a,b)=>(b.metricYear||0)-(a.metricYear||0))[0];const named=journals.filter(j=>normalizeTitle(j.name)===name);return named.length===1?named[0]:null;}
 export function ensureJournal(paper,journals){if(!paper.venue)return null;let journal=findJournal(paper,journals);if(journal){journal.issn=issns(journal.issn+';'+paper.issn).join('; ');return journal;}journal={id:'journal-'+crypto.randomUUID(),name:paper.venue,issn:issns(paper.issn).join('; '),impactFactor:'',metricYear:'',metricSource:'',metricUpdated:'',metricStatus:'미연동',clarivateId:''};journals.push(journal);return journal;}
-export function journalMetric(paper,journals=[]){const j=findJournal(paper,journals);return j&&j.metricStatus==='확인됨'&&j.impactFactor&&j.metricYear&&safeURL(j.metricSource)?{label:`IF ${j.impactFactor} · ${j.metricYear}`,source:j.metricSource,updated:j.metricUpdated,status:j.metricStatus}:{label:'IF —',source:'',updated:j?.metricUpdated||'',status:j?.metricStatus||'미연동'};}
+export function journalMetric(paper){
+ const value=String(paper?.impactFactor??'').trim();
+ if(!/^<?\d+(?:\.\d+)?$/.test(value))return {label:'IF —',source:'',updated:'',status:'unavailable',verified:false};
+ const year=/^(18|19|20|21)\d{2}$/.test(String(paper?.metricYear??''))?paper.metricYear:'';
+ return {label:`IF ${value}${year?' · '+year:''}`,source:safeURL(paper?.metricSource),updated:'',status:'manual',verified:false};
+}
 export const keywordList=value=>[...new Set(String(value||'').split(/[;；\n]+/).map(x=>x.trim()).filter(Boolean))].slice(0,3);
 export function extractKeywords(text,metadata=[]){
  const explicit=String(text||'').match(/(?:key\s*words?|키워드|주제어)\s*[:：]?\s*([^\n]{8,240}(?:\n[^\n]{5,100})?)/i);
@@ -23,7 +28,7 @@ export function extractKeywords(text,metadata=[]){
  return {keywords:[...new Set([...scored,...metadata.filter(x=>typeof x==='string')])].slice(0,3),origin:'Suggested from content — review required'};
 }
 export function paperFromCrossref(message,text=''){
- const m=message||{},year=(m.published?.['date-parts']||m['published-online']?.['date-parts']||m['published-print']?.['date-parts']||m.issued?.['date-parts'])?.[0]?.[0]||'';
+ const m=message||{},year=(m['published-print']?.['date-parts']||m['published-online']?.['date-parts']||m.published?.['date-parts']||m.issued?.['date-parts'])?.[0]?.[0]||'';
  const key=extractKeywords(text+'\n'+(m.title?.[0]||'')+'\n'+String(m.abstract||'').replace(/<[^>]*>/g,' '),m.subject||[]),doi=doiValue(m.DOI);
  return {title:String(m.title?.[0]||'').replace(/<[^>]*>/g,''),authors:(m.author||[]).map(a=>[a.given,a.family].filter(Boolean).join(' ')||a.name||'').filter(Boolean).join(', '),venue:m['container-title']?.[0]||'',year,type:m.type==='proceedings-article'?'학회':m.type==='posted-content'?'프리프린트':'저널',doi:doi?'https://doi.org/'+doi:'',articleUrl:safeURL(m.resource?.primary?.URL)|| (doi?'https://doi.org/'+doi:safeURL(m.URL)),issn:issns((m.ISSN||[]).join(';')).join('; '),keywords:key.keywords.join('; '),details:[m.volume,m.issue?'('+m.issue+')':'',m.page||m['article-number']].filter(Boolean).join(' '),importNote:'Crossref metadata · '+key.origin,isExample:false};
 }

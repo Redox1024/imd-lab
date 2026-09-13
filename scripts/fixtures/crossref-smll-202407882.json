@@ -1,0 +1,93 @@
+{
+  "source": "https://api.crossref.org/works/10.1002/smll.202407882",
+  "retrieved": "2026-09-13",
+  "message": {
+    "DOI": "10.1002/smll.202407882",
+    "title": [
+      "Regulating Entanglement Networks of Fibrillatable Binders for Sub‐20‐µm Thick, Robust, Dry‐Processed Solid Electrolyte Membranes in All‐Solid‐State Batteries"
+    ],
+    "container-title": [
+      "Small"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          11,
+          12
+        ]
+      ]
+    },
+    "published-online": {
+      "date-parts": [
+        [
+          2024,
+          11,
+          12
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2025,
+          4
+        ]
+      ]
+    },
+    "issued": {
+      "date-parts": [
+        [
+          2024,
+          11,
+          12
+        ]
+      ]
+    },
+    "volume": "21",
+    "issue": "13",
+    "article-number": "2407882",
+    "ISSN": [
+      "1613-6810",
+      "1613-6829"
+    ],
+    "type": "journal-article",
+    "resource": {
+      "primary": {
+        "URL": "https://onlinelibrary.wiley.com/doi/10.1002/smll.202407882"
+      }
+    },
+    "URL": "https://doi.org/10.1002/smll.202407882",
+    "subject": [],
+    "author": [
+      {
+        "given": "Seokyoon",
+        "family": "Yoon"
+      },
+      {
+        "given": "Seok Hun",
+        "family": "Kang"
+      },
+      {
+        "given": "Jaecheol",
+        "family": "Choi"
+      },
+      {
+        "given": "Ju Young",
+        "family": "Kim"
+      },
+      {
+        "given": "Young‐Gi",
+        "family": "Lee"
+      },
+      {
+        "given": "Young‐Sam",
+        "family": "Park"
+      },
+      {
+        "given": "Dong Ok",
+        "family": "Shin"
+      }
+    ]
+  }
+}

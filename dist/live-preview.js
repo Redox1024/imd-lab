@@ -4,7 +4,7 @@ import {textPages} from './pagination.js';
 import {orderRecords} from './list-order.js';
 export function liveCardData(section,record,site,content){
  const r=record||{},title=r.question||r.label||r.title||r.name||r.headline||'Untitled draft';
- const sections={site:'LAB SETTINGS',home:'HOME INTRO',homeSlides:'HOME IMAGES',homeNotes:'HOME NOTES',navigation:'NAVIGATION',pages:'EXTRA PAGES',professor:'MEET PI',research:'RESEARCH LENS',people:'MEMBERS',covers:'COVER GALLERY',journals:'JOURNAL IF',publications:'PAPERS',patents:'PATENTS',news:'LAB NOTES',events:'ARCHIVED EVENTS',join:'JOIN US',positions:'OPEN POSITIONS',contact:'CONTACT'};
+ const sections={site:'LAB SETTINGS',home:'HOME INTRO',homeSlides:'HOME IMAGES',homeNotes:'HOME NOTES',navigation:'NAVIGATION',pages:'EXTRA PAGES',professor:'MEET PI',research:'RESEARCH LENS',people:'MEMBERS',covers:'COVER GALLERY',publications:'PAPERS',patents:'PATENTS',news:'LAB NOTES',events:'ARCHIVED EVENTS',join:'JOIN US',positions:'OPEN POSITIONS',contact:'CONTACT'};
  let text='',subtitle='',image='';
  if(section==='site'){text=[r.nameEn,r.affiliation,r.introduction,r.aboutTitle,r.aboutSubtitle,r.institution,r.institutionUrl].filter(Boolean).join('\n\n');subtitle=r.shortName;}
  else if(section==='home'){text=[r.headline,r.description,[r.primaryLabel,r.secondaryLabel,r.tertiaryLabel].filter(Boolean).join(' · ')].filter(Boolean).join('\n\n');subtitle=r.eyebrow;image=r.imageStyle==='소재 이미지'?safeImage(content?.homeSlides?.find(slide=>slide.visible)?.image):'';}
@@ -14,8 +14,7 @@ export function liveCardData(section,record,site,content){
  else if(section==='research'){text=[r.title,r.goal,r.methods?'Approach\n'+r.methods:'',r.description].filter(Boolean).join('\n\n');subtitle=r.lensLabel||r.subtitle;}
  else if(section==='people'){text=[r.research,r.period,r.email].filter(Boolean).join('\n\n');subtitle=[r.membership,enumLabel(r.role),r.nameEn].filter(Boolean).join(' · ');image=safeImage(r.photo);}
  else if(section==='covers'){text=[r.title,r.articleUrl,r.visible?'Visible in gallery':'Hidden from gallery',r.isExample?'Fictional concept cover':''].filter(Boolean).join('\n\n');subtitle=[r.venue,r.year].filter(Boolean).join(' · ');image=safeImage(r.image);}
- else if(section==='publications'){text=[r.authors,r.venue,journalMetric(r,content?.journals).label,r.keywords,r.details,r.selectedForPI?'Selected for PI profile':'',r.articleUrl||r.doi,r.pdf,r.code].filter(Boolean).join('\n\n');subtitle=[r.year,enumLabel(r.type)].filter(Boolean).join(' · ');}
- else if(section==='journals'){text=[r.issn,enumLabel(r.metricStatus),r.impactFactor?'IF '+r.impactFactor+' · '+r.metricYear:'IF not connected',r.metricSource,r.metricUpdated].filter(Boolean).join('\n\n');subtitle=r.name;}
+ else if(section==='publications'){text=[r.authors,r.venue,journalMetric(r).label,r.keywords,r.details,r.selectedForPI?'Selected for PI profile':'',r.articleUrl||r.doi,r.pdf,r.code].filter(Boolean).join('\n\n');subtitle=[r.year,enumLabel(r.type)].filter(Boolean).join(' · ');}
  else if(section==='patents'){text=[r.inventors,enumLabel(r.country),r.number,r.link].filter(Boolean).join('\n\n');subtitle=[r.date,enumLabel(r.status)].filter(Boolean).join(' · ');}
  else if(section==='news'){text=r.body||'';subtitle=[r.date,enumLabel(r.category)].filter(Boolean).join(' · ');}
  else if(section==='events'){text=[r.time,r.location,r.description,r.link].filter(Boolean).join('\n\n');subtitle=[r.date,r.endDate,enumLabel(r.category)].filter(Boolean).join(' · ');}

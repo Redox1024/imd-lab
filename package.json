@@ -3,6 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "validate": "node --check dist/hero-carousel.js && node --check dist/app.js && node --check dist/editor.js && node --check dist/schema.js && node --check dist/pagination.js && node --check dist/live-preview.js && node --check dist/publication-data.js && node --check dist/document-import.js && node --check scripts/refresh-jif.mjs && node scripts/validate-content.mjs"
+    "validate": "node --check dist/hero-carousel.js && node --check dist/app.js && node --check dist/editor.js && node --check dist/schema.js && node --check dist/pagination.js && node --check dist/live-preview.js && node --check dist/publication-data.js && node --check dist/doi-import.js && node --check dist/list-order.js && node --check dist/document-import.js && node --check scripts/refresh-jif.mjs && node scripts/validate-content.mjs"
   }
 }

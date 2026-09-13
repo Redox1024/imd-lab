@@ -553,3 +553,9 @@ html.lab-site{scrollbar-gutter:stable}
 
 .site-page .brand-mark:not([hidden]) + .wordmark{margin-inline-start:-8px}
 @media(max-width:640px){.site-page .brand-mark:not([hidden]) + .wordmark{margin-inline-start:-4px}}
+
+/* DOI lookup stays next to the paper fields and manual-entry fallback. */
+.doi-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}
+.doi-actions .doi-fill{background:var(--navy);border-color:var(--navy);color:white}
+.doi-feedback{font-size:12px;line-height:1.6;color:var(--muted);margin:9px 0 0}
+.doi-feedback[data-error="true"]{color:#a42e2e}
