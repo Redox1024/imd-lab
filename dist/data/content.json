@@ -258,32 +258,6 @@
       "link": "",
       "period": "2026–Present",
       "isExample": true
-    },
-    {
-      "id": "alumni-yoon",
-      "name": "Bunseok Yoon",
-      "nameEn": "Bunseok Yoon",
-      "membership": "Alumni",
-      "role": "졸업생",
-      "research": "M.S. graduate · Example career in battery materials",
-      "email": "",
-      "photo": "",
-      "link": "",
-      "period": "2023–2025",
-      "isExample": true
-    },
-    {
-      "id": "alumni-kang",
-      "name": "Jiwan Kang",
-      "nameEn": "Jiwan Kang",
-      "membership": "Alumni",
-      "role": "졸업생",
-      "research": "Ph.D. graduate · Example career in device engineering",
-      "email": "",
-      "photo": "",
-      "link": "",
-      "period": "2021–2025",
-      "isExample": true
     }
   ],
   "covers": [
@@ -602,6 +576,28 @@
     },
     {
       "id": "journal-47c97dde-1d89-4d22-8488-65f45de808a1",
+      "name": "Example Journal",
+      "issn": "",
+      "impactFactor": "",
+      "metricYear": "",
+      "metricSource": "",
+      "metricUpdated": "",
+      "metricStatus": "미연동",
+      "clarivateId": ""
+    },
+    {
+      "id": "journal-473cd308-1aff-4df2-9f2c-db74f9381f52",
+      "name": "Example Journal",
+      "issn": "",
+      "impactFactor": "",
+      "metricYear": "",
+      "metricSource": "",
+      "metricUpdated": "",
+      "metricStatus": "미연동",
+      "clarivateId": ""
+    },
+    {
+      "id": "journal-39d3a316-7ea1-4491-b7ff-efce3d124963",
       "name": "Example Journal",
       "issn": "",
       "impactFactor": "",
