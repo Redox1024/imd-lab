@@ -1,373 +1,21 @@
 {
   "schemaVersion": 1,
   "site": {
+    "logoVariant": "IMD guide",
+    "logoImage": "",
     "name": "Integrated Materials and Devices Laboratory",
     "nameEn": "Integrated Materials and Devices Laboratory",
     "shortName": "IMD Lab",
     "affiliation": "Material design · Electrode processing · Electrochemistry · Device integration",
     "introduction": "IMD Lab connects material design, electrode processing, and device integration.\nWe use electrochemical experiments and data analysis to understand performance and develop reproducible design principles.",
+    "aboutTitle": "Meet the PI",
+    "aboutSubtitle": "Connecting material behavior with reproducible device design.",
     "github": "",
     "repository": "",
     "branch": "main",
     "isTemplate": true,
-    "aboutTitle": "Meet the PI",
-    "aboutSubtitle": "Connecting material behavior with reproducible device design.",
     "institution": "Electronics and Telecommunications Research Institute (ETRI)",
-    "institutionUrl": "https://www.etri.re.kr/eng/main/main.etri",
-    "logoVariant": "IMD guide",
-    "logoImage": ""
-  },
-  "professor": {
-    "name": "Yeongu Kim, Ph.D.",
-    "nameEn": "Yeongu Kim, Ph.D.",
-    "position": "Principal Investigator · Electronics and Telecommunications Research Institute (ETRI)",
-    "bio": "Yeongu Kim studies how material structure and processing conditions shape electrode performance. His work combines electrochemical analysis with data-informed optimization to connect battery materials with device design.",
-    "email": "professor@example.org",
-    "photo": "",
-    "education": "2013–2017 | Ph.D., Materials Science | Example University\n2011–2013 | M.S., Materials Science | Example University\n2007–2011 | B.S., Materials Science | Example University",
-    "career": "2022–Present | Principal Investigator (example appointment) | Electronics and Telecommunications Research Institute (ETRI)\n2019–2022 | Senior Research Scientist (example appointment) | Example Energy Research Institute\n2017–2019 | Postdoctoral Researcher (example appointment) | Example University",
-    "scholar": "",
-    "orcid": "",
-    "isExample": true,
-    "statement": "Understand what drives performance.\nBuild processes that reproduce it.",
-    "researchInterests": "Material design · Electrode–electrolyte interfaces\nElectrode processing · Rechargeable batteries\nElectrochemistry · Device integration",
-    "awards": "2025 | Research Excellence Award | Example University\n2023 | Teaching Excellence Award | Example University",
-    "cv": "",
-    "phone": ""
-  },
-  "research": [
-    {
-      "id": "electrode-materials",
-      "title": "Electrode materials",
-      "subtitle": "Structure, composition, and performance",
-      "description": "We study how electrode structure and composition affect energy storage and cycle life, with a focus on reactions and degradation in lithium- and sodium-based rechargeable batteries.",
-      "link": "",
-      "isExample": true,
-      "lensLabel": "Materials",
-      "question": "How can electrodes store more energy for longer?",
-      "methods": "Material design · Structural characterization · Reaction mechanisms",
-      "goal": "Develop electrode designs that balance storage capacity and cycle life.",
-      "updated": "2026-09-12"
-    },
-    {
-      "id": "electrolytes-interfaces",
-      "title": "Electrolytes and interfaces",
-      "subtitle": "Ion transport and interfacial stability",
-      "description": "We investigate reactions between electrodes and electrolytes to guide stable battery operation. Our work considers ion transport and interfacial behavior in both liquid and solid electrolytes.",
-      "link": "",
-      "isExample": true,
-      "lensLabel": "Interfaces",
-      "question": "What happens where an electrode meets an electrolyte?",
-      "methods": "Electrolyte formulation · Interface control · Ion transport",
-      "goal": "Design electrolytes with a balance of ion transport and interfacial stability.",
-      "updated": "2026-09-10"
-    },
-    {
-      "id": "electrochemical-analysis",
-      "title": "Electrochemical diagnostics",
-      "subtitle": "From measured signals to device behavior",
-      "description": "We use cycling tests, impedance measurements, and operando analysis to track changes inside batteries. These measurements connect the causes of performance loss with material and device design.",
-      "link": "",
-      "isExample": true,
-      "lensLabel": "Diagnostics",
-      "question": "How can measurements reveal changes inside a battery?",
-      "methods": "Electrochemical measurements · Reaction kinetics · Degradation analysis",
-      "goal": "Relate measured signals to internal reactions and identify the causes of battery degradation.",
-      "updated": "2026-09-08"
-    }
-  ],
-  "people": [
-    {
-      "id": "researcher-lee",
-      "name": "Sojae Lee",
-      "nameEn": "Sojae Lee",
-      "role": "연구원",
-      "research": "Solid electrolytes · Interfacial reactions",
-      "email": "materials@example.org",
-      "photo": "",
-      "link": "",
-      "period": "2025–Present",
-      "isExample": true,
-      "membership": "Current member"
-    },
-    {
-      "id": "phd-park",
-      "name": "Jeonji Park",
-      "nameEn": "Jeonji Park",
-      "role": "박사과정",
-      "research": "Sodium-based rechargeable batteries · Electrode structure",
-      "email": "battery@example.org",
-      "photo": "",
-      "link": "",
-      "period": "2024–Present",
-      "isExample": true,
-      "membership": "Current member"
-    },
-    {
-      "id": "integrated-jung",
-      "name": "Gyemyeon Jung",
-      "nameEn": "Gyemyeon Jung",
-      "role": "석박사통합과정",
-      "research": "Electrode–electrolyte interfaces · Operando analysis",
-      "email": "interface@example.org",
-      "photo": "",
-      "link": "",
-      "period": "2025–Present",
-      "isExample": true,
-      "membership": "Current member"
-    },
-    {
-      "id": "masters-choi",
-      "name": "Baneung Choi",
-      "nameEn": "Baneung Choi",
-      "role": "석사과정",
-      "research": "Electrochemical impedance · Cycle-life analysis",
-      "email": "reaction@example.org",
-      "photo": "",
-      "link": "",
-      "period": "2026–Present",
-      "isExample": true,
-      "membership": "Current member"
-    },
-    {
-      "id": "undergrad-han",
-      "name": "Energy Han",
-      "nameEn": "Energy Han",
-      "role": "학부연구생",
-      "research": "Electrode fabrication · Battery cycling data",
-      "email": "energy@example.org",
-      "photo": "",
-      "link": "",
-      "period": "2026–Present",
-      "isExample": true,
-      "membership": "Current member"
-    },
-    {
-      "id": "alumni-yoon",
-      "name": "Bunseok Yoon",
-      "nameEn": "Bunseok Yoon",
-      "role": "졸업생",
-      "research": "M.S. graduate · Example career in battery materials",
-      "email": "",
-      "photo": "",
-      "link": "",
-      "period": "2023–2025",
-      "isExample": true,
-      "membership": "Alumni"
-    },
-    {
-      "id": "alumni-kang",
-      "name": "Jiwan Kang",
-      "nameEn": "Jiwan Kang",
-      "membership": "Alumni",
-      "role": "졸업생",
-      "research": "Ph.D. graduate · Example career in device engineering",
-      "email": "",
-      "photo": "",
-      "link": "",
-      "period": "2021–2025",
-      "isExample": true
-    }
-  ],
-  "publications": [
-    {
-      "id": "paper-2026-interface",
-      "title": "Stabilizing Electrode–Electrolyte Interfaces in Lithium Rechargeable Batteries",
-      "authors": "Sojae Lee, Jeonji Park, Yeongu Kim",
-      "venue": "Example Journal",
-      "year": 2026,
-      "type": "저널",
-      "details": "Example volume, issue, and pages",
-      "doi": "",
-      "pdf": "",
-      "code": "",
-      "isExample": true,
-      "keywords": "Electrolytes; Interfacial chemistry; Lithium-ion batteries",
-      "issn": "",
-      "articleUrl": "",
-      "importNote": "Fictional example publication. Replace with verified publication details.",
-      "sourceHash": "",
-      "selectedForPI": true
-    },
-    {
-      "id": "paper-2026-diagnostics",
-      "title": "Diagnosing Battery Degradation with Impedance Analysis",
-      "authors": "Baneung Choi, Gyemyeon Jung, Yeongu Kim",
-      "venue": "Example Conference",
-      "year": 2026,
-      "type": "학회",
-      "details": "Example session and presentation number",
-      "doi": "",
-      "pdf": "",
-      "code": "",
-      "isExample": true,
-      "keywords": "Electrode materials; Energy storage; Electrochemical kinetics",
-      "issn": "",
-      "articleUrl": "",
-      "importNote": "Fictional example publication. Replace with verified publication details.",
-      "sourceHash": "",
-      "selectedForPI": true
-    },
-    {
-      "id": "paper-2025-electrode",
-      "title": "Structure and Reaction Behavior of Sodium-Storage Electrodes",
-      "authors": "Jeonji Park, Bunseok Yoon, Yeongu Kim",
-      "venue": "Example Journal",
-      "year": 2025,
-      "type": "저널",
-      "details": "Example volume, issue, and pages",
-      "doi": "",
-      "pdf": "",
-      "code": "",
-      "isExample": true,
-      "keywords": "Battery degradation; Materials characterization; Lithium-ion batteries",
-      "issn": "",
-      "articleUrl": "",
-      "importNote": "Fictional example publication. Replace with verified publication details.",
-      "sourceHash": "",
-      "selectedForPI": true
-    }
-  ],
-  "patents": [
-    {
-      "id": "patent-interface",
-      "title": "Method for Stabilizing Electrode Interfaces in Rechargeable Batteries",
-      "inventors": "Yeongu Kim, Sojae Lee",
-      "number": "Example application number",
-      "country": "Republic of Korea",
-      "status": "출원",
-      "date": "2026-05-20",
-      "link": "",
-      "isExample": true,
-      "applicationNumber": "",
-      "registrationNumber": "",
-      "applicationDate": "",
-      "registrationDate": "",
-      "sourceHash": "",
-      "importNote": "Fictional example patent. Replace with verified patent records."
-    },
-    {
-      "id": "patent-diagnostics",
-      "title": "Method for Assessing Battery State Using Electrochemical Signals",
-      "inventors": "Yeongu Kim, Bunseok Yoon",
-      "number": "Example registration number",
-      "country": "Republic of Korea",
-      "status": "등록",
-      "date": "2025-11-14",
-      "link": "",
-      "isExample": true,
-      "applicationNumber": "",
-      "registrationNumber": "",
-      "applicationDate": "",
-      "registrationDate": "",
-      "sourceHash": "",
-      "importNote": "Fictional example patent. Replace with verified patent records."
-    }
-  ],
-  "news": [
-    {
-      "id": "event-news-battery-data-workshop",
-      "title": "Battery data analysis workshop",
-      "date": "2026-10-08",
-      "category": "기타",
-      "body": "Example event: Practice organizing battery cycling data, preparing plots, and interpreting impedance measurements.\n\nTime: 14:00–17:00 (KST)\nLocation: Room 301, Engineering Building, Example University",
-      "link": "",
-      "isExample": true
-    },
-    {
-      "id": "event-news-seminar-interface",
-      "title": "Electrolytes and interfaces seminar",
-      "date": "2026-09-24",
-      "category": "기타",
-      "body": "Example event: An introduction to electrode–electrolyte reactions and analytical methods, followed by a discussion of related literature.\n\nTime: 15:00–16:00 (KST)\nLocation: Room 302, Engineering Building, Example University",
-      "link": "",
-      "isExample": true
-    },
-    {
-      "id": "fall-research-meeting",
-      "title": "Research questions for the fall semester",
-      "date": "2026-09-07",
-      "category": "연구실",
-      "body": "Example news: The group shared research questions on electrode materials, electrolytes and interfaces, and electrochemical diagnostics.\nBrief progress updates informed plans for joint experiments and data organization.",
-      "link": "",
-      "isExample": true
-    },
-    {
-      "id": "new-student",
-      "title": "Welcoming a new undergraduate researcher",
-      "date": "2026-09-01",
-      "category": "구성원",
-      "body": "Example news: Energy Han has joined the group as an undergraduate researcher, with plans to learn electrode fabrication and battery cycling data analysis.",
-      "link": "",
-      "isExample": true
-    },
-    {
-      "id": "event-news-summer-research-meeting",
-      "title": "Summer research meeting",
-      "date": "2026-08-28",
-      "category": "기타",
-      "body": "Example event: Share summer research progress and discuss research plans for the next semester.\n\nTime: 14:00–16:00 (KST)\nLocation: Room 302, Engineering Building, Example University",
-      "link": "",
-      "isExample": true
-    },
-    {
-      "id": "interface-discussion",
-      "title": "A closer look at electrolyte interfaces",
-      "date": "2026-08-21",
-      "category": "연구",
-      "body": "Example news: The group discussed literature on electrode–electrolyte reactions, distinguished observations from interpretations, and identified questions for future experiments.",
-      "link": "",
-      "isExample": true
-    }
-  ],
-  "events": [
-    {
-      "id": "seminar-interface",
-      "title": "Electrolytes and interfaces seminar",
-      "date": "2026-09-24",
-      "endDate": "",
-      "time": "15:00–16:00 (KST)",
-      "category": "세미나",
-      "location": "Room 302, Engineering Building, Example University",
-      "description": "Example event: An introduction to electrode–electrolyte reactions and analytical methods, followed by a discussion of related literature.",
-      "link": "",
-      "isExample": true
-    },
-    {
-      "id": "battery-data-workshop",
-      "title": "Battery data analysis workshop",
-      "date": "2026-10-08",
-      "endDate": "",
-      "time": "14:00–17:00 (KST)",
-      "category": "워크숍",
-      "location": "Room 301, Engineering Building, Example University",
-      "description": "Example event: Practice organizing battery cycling data, preparing plots, and interpreting impedance measurements.",
-      "link": "",
-      "isExample": true
-    },
-    {
-      "id": "summer-research-meeting",
-      "title": "Summer research meeting",
-      "date": "2026-08-28",
-      "endDate": "",
-      "time": "14:00–16:00 (KST)",
-      "category": "연구실 행사",
-      "location": "Room 302, Engineering Building, Example University",
-      "description": "Example event: Share summer research progress and discuss research plans for the next semester.",
-      "link": "",
-      "isExample": true
-    }
-  ],
-  "contact": {
-    "email": "lab@example.org",
-    "phone": "",
-    "address": "ETRI headquarters\n218 Gajeong-ro, Yuseong-gu, Daejeon, 34129, Republic of Korea",
-    "room": "",
-    "transport": "Refer to the ETRI website for campus directions. Please confirm the lab building and room before visiting.",
-    "visiting": "Please email to arrange a visit. Include the purpose of your visit and your preferred date and time.",
-    "inquiry": "For research collaboration or technical inquiries, send a short description of your interests, proposed work and preferred contact details.",
-    "mapUrl": "",
-    "isExample": true
+    "institutionUrl": "https://www.etri.re.kr/eng/main/main.etri"
   },
   "home": {
     "eyebrow": "INTEGRATED MATERIALS AND DEVICES",
@@ -377,13 +25,55 @@
     "primaryTarget": "#research",
     "secondaryLabel": "Meet the PI",
     "secondaryTarget": "#about",
-    "imageStyle": "소재 이미지",
-    "showLatestNews": true,
     "tertiaryLabel": "Publication",
     "tertiaryTarget": "#publications",
+    "imageStyle": "소재 이미지",
     "autoplay": true,
-    "slideDelay": "6"
+    "slideDelay": "6",
+    "showLatestNews": true
   },
+  "homeSlides": [
+    {
+      "id": "home-image-first",
+      "title": "Materials research",
+      "image": "assets/research-in-focus.webp",
+      "caption": "Materials research · AI-generated concept",
+      "imageAlt": "AI-generated concept image of gloved hands carefully positioning a small material specimen with tweezers beneath a stereomicroscope.",
+      "visible": true
+    },
+    {
+      "id": "battery-cell-research",
+      "title": "Battery cell research",
+      "image": "assets/battery-research.webp",
+      "caption": "Battery research · AI-generated concept",
+      "imageAlt": "AI-generated concept of gloved hands assembling a coin cell at a laboratory glovebox station.",
+      "visible": true
+    },
+    {
+      "id": "electrode-processing",
+      "title": "Electrode processing",
+      "image": "assets/electrode-processing.webp",
+      "caption": "Electrode processing · AI-generated concept",
+      "imageAlt": "AI-generated concept of a researcher adjusting a precision coating head over an electrode film on copper foil.",
+      "visible": true
+    },
+    {
+      "id": "solid-state-manufacturing",
+      "title": "Solid-state battery manufacturing",
+      "image": "assets/solid-state-manufacturing.webp",
+      "caption": "Solid-state batteries · AI-generated concept",
+      "imageAlt": "Gloved hands preparing a solid electrolyte pellet and pressing die for solid-state battery research.",
+      "visible": true
+    },
+    {
+      "id": "aqueous-battery-research",
+      "title": "Aqueous rechargeable batteries",
+      "image": "assets/aqueous-battery-research.webp",
+      "caption": "Aqueous batteries · AI-generated concept",
+      "imageAlt": "A transparent electrochemical cell with aqueous electrolyte and wired electrodes prepared for rechargeable battery testing.",
+      "visible": true
+    }
+  ],
   "homeNotes": [
     {
       "id": "our-focus",
@@ -444,39 +134,156 @@
     }
   ],
   "pages": [],
-  "journals": [
+  "professor": {
+    "name": "Yeongu Kim, Ph.D.",
+    "nameEn": "Yeongu Kim, Ph.D.",
+    "position": "Principal Investigator · Electronics and Telecommunications Research Institute (ETRI)",
+    "bio": "Yeongu Kim studies how material structure and processing conditions shape electrode performance. His work combines electrochemical analysis with data-informed optimization to connect battery materials with device design.",
+    "statement": "Understand what drives performance.\nBuild processes that reproduce it.",
+    "email": "professor@example.org",
+    "phone": "",
+    "photo": "",
+    "researchInterests": "Material design · Electrode–electrolyte interfaces\nElectrode processing · Rechargeable batteries\nElectrochemistry · Device integration",
+    "education": "2013–2017 | Ph.D., Materials Science | Example University\n2011–2013 | M.S., Materials Science | Example University\n2007–2011 | B.S., Materials Science | Example University",
+    "career": "2022–Present | Principal Investigator (example appointment) | Electronics and Telecommunications Research Institute (ETRI)\n2019–2022 | Senior Research Scientist (example appointment) | Example Energy Research Institute\n2017–2019 | Postdoctoral Researcher (example appointment) | Example University",
+    "awards": "2025 | Research Excellence Award | Example University\n2023 | Teaching Excellence Award | Example University",
+    "cv": "",
+    "scholar": "",
+    "orcid": "",
+    "isExample": true
+  },
+  "research": [
     {
-      "id": "journal-example-1",
-      "name": "Example Journal",
-      "issn": "",
-      "impactFactor": "",
-      "metricYear": "",
-      "metricSource": "",
-      "metricUpdated": "",
-      "metricStatus": "미연동",
-      "clarivateId": ""
+      "id": "electrode-materials",
+      "title": "Electrode materials",
+      "subtitle": "Structure, composition, and performance",
+      "description": "We study how electrode structure and composition affect energy storage and cycle life, with a focus on reactions and degradation in lithium- and sodium-based rechargeable batteries.",
+      "lensLabel": "Materials",
+      "question": "How can electrodes store more energy for longer?",
+      "methods": "Material design · Structural characterization · Reaction mechanisms",
+      "goal": "Develop electrode designs that balance storage capacity and cycle life.",
+      "link": "",
+      "isExample": true,
+      "updated": "2026-09-12"
     },
     {
-      "id": "journal-example-2",
-      "name": "Example Conference",
-      "issn": "",
-      "impactFactor": "",
-      "metricYear": "",
-      "metricSource": "",
-      "metricUpdated": "",
-      "metricStatus": "미연동",
-      "clarivateId": ""
+      "id": "electrolytes-interfaces",
+      "title": "Electrolytes and interfaces",
+      "subtitle": "Ion transport and interfacial stability",
+      "description": "We investigate reactions between electrodes and electrolytes to guide stable battery operation. Our work considers ion transport and interfacial behavior in both liquid and solid electrolytes.",
+      "lensLabel": "Interfaces",
+      "question": "What happens where an electrode meets an electrolyte?",
+      "methods": "Electrolyte formulation · Interface control · Ion transport",
+      "goal": "Design electrolytes with a balance of ion transport and interfacial stability.",
+      "link": "",
+      "isExample": true,
+      "updated": "2026-09-10"
     },
     {
-      "id": "journal-example-3",
-      "name": "Example Journal",
-      "issn": "",
-      "impactFactor": "",
-      "metricYear": "",
-      "metricSource": "",
-      "metricUpdated": "",
-      "metricStatus": "미연동",
-      "clarivateId": ""
+      "id": "electrochemical-analysis",
+      "title": "Electrochemical diagnostics",
+      "subtitle": "From measured signals to device behavior",
+      "description": "We use cycling tests, impedance measurements, and operando analysis to track changes inside batteries. These measurements connect the causes of performance loss with material and device design.",
+      "lensLabel": "Diagnostics",
+      "question": "How can measurements reveal changes inside a battery?",
+      "methods": "Electrochemical measurements · Reaction kinetics · Degradation analysis",
+      "goal": "Relate measured signals to internal reactions and identify the causes of battery degradation.",
+      "link": "",
+      "isExample": true,
+      "updated": "2026-09-08"
+    }
+  ],
+  "people": [
+    {
+      "id": "researcher-lee",
+      "name": "Sojae Lee",
+      "nameEn": "Sojae Lee",
+      "membership": "Current member",
+      "role": "연구원",
+      "research": "Solid electrolytes · Interfacial reactions",
+      "email": "materials@example.org",
+      "photo": "",
+      "link": "",
+      "period": "2025–Present",
+      "isExample": true
+    },
+    {
+      "id": "phd-park",
+      "name": "Jeonji Park",
+      "nameEn": "Jeonji Park",
+      "membership": "Current member",
+      "role": "박사과정",
+      "research": "Sodium-based rechargeable batteries · Electrode structure",
+      "email": "battery@example.org",
+      "photo": "",
+      "link": "",
+      "period": "2024–Present",
+      "isExample": true
+    },
+    {
+      "id": "integrated-jung",
+      "name": "Gyemyeon Jung",
+      "nameEn": "Gyemyeon Jung",
+      "membership": "Current member",
+      "role": "석박사통합과정",
+      "research": "Electrode–electrolyte interfaces · Operando analysis",
+      "email": "interface@example.org",
+      "photo": "",
+      "link": "",
+      "period": "2025–Present",
+      "isExample": true
+    },
+    {
+      "id": "masters-choi",
+      "name": "Baneung Choi",
+      "nameEn": "Baneung Choi",
+      "membership": "Current member",
+      "role": "석사과정",
+      "research": "Electrochemical impedance · Cycle-life analysis",
+      "email": "reaction@example.org",
+      "photo": "",
+      "link": "",
+      "period": "2026–Present",
+      "isExample": true
+    },
+    {
+      "id": "undergrad-han",
+      "name": "Energy Han",
+      "nameEn": "Energy Han",
+      "membership": "Current member",
+      "role": "학부연구생",
+      "research": "Electrode fabrication · Battery cycling data",
+      "email": "energy@example.org",
+      "photo": "",
+      "link": "",
+      "period": "2026–Present",
+      "isExample": true
+    },
+    {
+      "id": "alumni-yoon",
+      "name": "Bunseok Yoon",
+      "nameEn": "Bunseok Yoon",
+      "membership": "Alumni",
+      "role": "졸업생",
+      "research": "M.S. graduate · Example career in battery materials",
+      "email": "",
+      "photo": "",
+      "link": "",
+      "period": "2023–2025",
+      "isExample": true
+    },
+    {
+      "id": "alumni-kang",
+      "name": "Jiwan Kang",
+      "nameEn": "Jiwan Kang",
+      "membership": "Alumni",
+      "role": "졸업생",
+      "research": "Ph.D. graduate · Example career in device engineering",
+      "email": "",
+      "photo": "",
+      "link": "",
+      "period": "2021–2025",
+      "isExample": true
     }
   ],
   "covers": [
@@ -601,6 +408,310 @@
       "isExample": true
     }
   ],
+  "publications": [
+    {
+      "id": "publications-788cf30e-3daf-4e96-9f89-ee8fb6271bda",
+      "title": "Growth-Directing Nanostructured Interfaces via Block Copolymer-Templated Au Nanoseed Arrays for Stabilized Zinc Anodes in Lean-Zinc Batteries",
+      "authors": "Dong Won Hae, Hoseok Lee, Hyeong Jun Kook, Ga Hee Kim, Saehun Kim, Jaecheol Choi, Min Pyeong Kim, Seok Hun Kang, Won Jun Lee, Young-Gi Lee, Hyeong Min Jin, Jongsoon Kim & Dong Ok Shin",
+      "venue": "Nano-Micro Letters",
+      "year": 2026,
+      "type": "저널",
+      "keywords": "Aqueous zinc-ion battery; Block copolymer template; Au nanoseed",
+      "issn": "",
+      "articleUrl": "",
+      "importNote": "PDF draft. Check the journal, year and English author list. PDF keywords Online metadata unavailable; PDF fields retained.",
+      "sourceHash": "c60495d54d4f439e05c72c85de016d562a90ad28846621bdefff5b6b4b31b436",
+      "details": "",
+      "doi": "",
+      "pdf": "",
+      "code": "",
+      "isExample": false,
+      "selectedForPI": false
+    },
+    {
+      "id": "paper-2026-interface",
+      "title": "Stabilizing Electrode–Electrolyte Interfaces in Lithium Rechargeable Batteries",
+      "authors": "Sojae Lee, Jeonji Park, Yeongu Kim",
+      "venue": "Example Journal",
+      "year": 2026,
+      "type": "저널",
+      "keywords": "Electrolytes; Interfacial chemistry; Lithium-ion batteries",
+      "issn": "",
+      "articleUrl": "",
+      "importNote": "Fictional example publication. Replace with verified publication details.",
+      "sourceHash": "",
+      "details": "Example volume, issue, and pages",
+      "doi": "",
+      "pdf": "",
+      "code": "",
+      "isExample": true,
+      "selectedForPI": true
+    },
+    {
+      "id": "paper-2026-diagnostics",
+      "title": "Diagnosing Battery Degradation with Impedance Analysis",
+      "authors": "Baneung Choi, Gyemyeon Jung, Yeongu Kim",
+      "venue": "Example Conference",
+      "year": 2026,
+      "type": "학회",
+      "keywords": "Electrode materials; Energy storage; Electrochemical kinetics",
+      "issn": "",
+      "articleUrl": "",
+      "importNote": "Fictional example publication. Replace with verified publication details.",
+      "sourceHash": "",
+      "details": "Example session and presentation number",
+      "doi": "",
+      "pdf": "",
+      "code": "",
+      "isExample": true,
+      "selectedForPI": true
+    },
+    {
+      "id": "paper-2025-electrode",
+      "title": "Structure and Reaction Behavior of Sodium-Storage Electrodes",
+      "authors": "Jeonji Park, Bunseok Yoon, Yeongu Kim",
+      "venue": "Example Journal",
+      "year": 2025,
+      "type": "저널",
+      "keywords": "Battery degradation; Materials characterization; Lithium-ion batteries",
+      "issn": "",
+      "articleUrl": "",
+      "importNote": "Fictional example publication. Replace with verified publication details.",
+      "sourceHash": "",
+      "details": "Example volume, issue, and pages",
+      "doi": "",
+      "pdf": "",
+      "code": "",
+      "isExample": true,
+      "selectedForPI": true
+    }
+  ],
+  "journals": [
+    {
+      "id": "journal-example-1",
+      "name": "Example Journal",
+      "issn": "",
+      "impactFactor": "",
+      "metricYear": "",
+      "metricSource": "",
+      "metricUpdated": "",
+      "metricStatus": "미연동",
+      "clarivateId": ""
+    },
+    {
+      "id": "journal-example-2",
+      "name": "Example Conference",
+      "issn": "",
+      "impactFactor": "",
+      "metricYear": "",
+      "metricSource": "",
+      "metricUpdated": "",
+      "metricStatus": "미연동",
+      "clarivateId": ""
+    },
+    {
+      "id": "journal-example-3",
+      "name": "Example Journal",
+      "issn": "",
+      "impactFactor": "",
+      "metricYear": "",
+      "metricSource": "",
+      "metricUpdated": "",
+      "metricStatus": "미연동",
+      "clarivateId": ""
+    },
+    {
+      "id": "journal-6e42cd8c-6f16-460e-a910-5a8991568036",
+      "name": "Nano-Micro Letters",
+      "issn": "",
+      "impactFactor": "36.3",
+      "metricYear": "",
+      "metricSource": "",
+      "metricUpdated": "",
+      "metricStatus": "미연동",
+      "clarivateId": ""
+    },
+    {
+      "id": "journal-7e07afe2-0425-4f07-b099-99067bf2132d",
+      "name": "Example Journal",
+      "issn": "",
+      "impactFactor": "",
+      "metricYear": "",
+      "metricSource": "",
+      "metricUpdated": "",
+      "metricStatus": "미연동",
+      "clarivateId": ""
+    },
+    {
+      "id": "journal-919b7a5f-0468-412d-9d20-e66088326879",
+      "name": "Example Journal",
+      "issn": "",
+      "impactFactor": "",
+      "metricYear": "",
+      "metricSource": "",
+      "metricUpdated": "",
+      "metricStatus": "미연동",
+      "clarivateId": ""
+    },
+    {
+      "id": "journal-25d3f5fb-00f5-49d2-b9b8-f6223e337e7a",
+      "name": "Example Journal",
+      "issn": "",
+      "impactFactor": "",
+      "metricYear": "",
+      "metricSource": "",
+      "metricUpdated": "",
+      "metricStatus": "미연동",
+      "clarivateId": ""
+    },
+    {
+      "id": "journal-612fe6d4-c010-42c0-b578-2002d09b5cc5",
+      "name": "Example Journal",
+      "issn": "",
+      "impactFactor": "",
+      "metricYear": "",
+      "metricSource": "",
+      "metricUpdated": "",
+      "metricStatus": "미연동",
+      "clarivateId": ""
+    },
+    {
+      "id": "journal-d3aae278-ff62-4777-b80d-204d55f3d9b1",
+      "name": "Example Journal",
+      "issn": "",
+      "impactFactor": "",
+      "metricYear": "",
+      "metricSource": "",
+      "metricUpdated": "",
+      "metricStatus": "미연동",
+      "clarivateId": ""
+    },
+    {
+      "id": "journal-0b72f4b4-fe9b-4439-b26e-6d0d0eff55e3",
+      "name": "Example Journal",
+      "issn": "",
+      "impactFactor": "",
+      "metricYear": "",
+      "metricSource": "",
+      "metricUpdated": "",
+      "metricStatus": "미연동",
+      "clarivateId": ""
+    },
+    {
+      "id": "journal-7f50449f-c056-4df0-a530-fdaa0f15ef5f",
+      "name": "Example Journal",
+      "issn": "",
+      "impactFactor": "",
+      "metricYear": "",
+      "metricSource": "",
+      "metricUpdated": "",
+      "metricStatus": "미연동",
+      "clarivateId": ""
+    },
+    {
+      "id": "journal-6b4f4bc2-c4ac-4419-a0c1-b0ab221726b8",
+      "name": "Example Journal",
+      "issn": "",
+      "impactFactor": "",
+      "metricYear": "",
+      "metricSource": "",
+      "metricUpdated": "",
+      "metricStatus": "미연동",
+      "clarivateId": ""
+    }
+  ],
+  "patents": [
+    {
+      "id": "patent-interface",
+      "title": "Method for Stabilizing Electrode Interfaces in Rechargeable Batteries",
+      "inventors": "Yeongu Kim, Sojae Lee",
+      "number": "Example application number",
+      "applicationNumber": "",
+      "registrationNumber": "",
+      "applicationDate": "",
+      "registrationDate": "",
+      "importNote": "Fictional example patent. Replace with verified patent records.",
+      "sourceHash": "",
+      "country": "Republic of Korea",
+      "status": "출원",
+      "date": "2026-05-20",
+      "link": "",
+      "isExample": true
+    },
+    {
+      "id": "patent-diagnostics",
+      "title": "Method for Assessing Battery State Using Electrochemical Signals",
+      "inventors": "Yeongu Kim, Bunseok Yoon",
+      "number": "Example registration number",
+      "applicationNumber": "",
+      "registrationNumber": "",
+      "applicationDate": "",
+      "registrationDate": "",
+      "importNote": "Fictional example patent. Replace with verified patent records.",
+      "sourceHash": "",
+      "country": "Republic of Korea",
+      "status": "등록",
+      "date": "2025-11-14",
+      "link": "",
+      "isExample": true
+    }
+  ],
+  "news": [
+    {
+      "id": "event-news-battery-data-workshop",
+      "title": "Battery data analysis workshop",
+      "date": "2026-10-08",
+      "category": "기타",
+      "body": "Example event: Practice organizing battery cycling data, preparing plots, and interpreting impedance measurements.\n\nTime: 14:00–17:00 (KST)\nLocation: Room 301, Engineering Building, Example University",
+      "link": "",
+      "isExample": true
+    },
+    {
+      "id": "event-news-seminar-interface",
+      "title": "Electrolytes and interfaces seminar",
+      "date": "2026-09-24",
+      "category": "기타",
+      "body": "Example event: An introduction to electrode–electrolyte reactions and analytical methods, followed by a discussion of related literature.\n\nTime: 15:00–16:00 (KST)\nLocation: Room 302, Engineering Building, Example University",
+      "link": "",
+      "isExample": true
+    },
+    {
+      "id": "fall-research-meeting",
+      "title": "Research questions for the fall semester",
+      "date": "2026-09-07",
+      "category": "연구실",
+      "body": "Example news: The group shared research questions on electrode materials, electrolytes and interfaces, and electrochemical diagnostics.\nBrief progress updates informed plans for joint experiments and data organization.",
+      "link": "",
+      "isExample": true
+    },
+    {
+      "id": "new-student",
+      "title": "Welcoming a new undergraduate researcher",
+      "date": "2026-09-01",
+      "category": "구성원",
+      "body": "Example news: Energy Han has joined the group as an undergraduate researcher, with plans to learn electrode fabrication and battery cycling data analysis.",
+      "link": "",
+      "isExample": true
+    },
+    {
+      "id": "event-news-summer-research-meeting",
+      "title": "Summer research meeting",
+      "date": "2026-08-28",
+      "category": "기타",
+      "body": "Example event: Share summer research progress and discuss research plans for the next semester.\n\nTime: 14:00–16:00 (KST)\nLocation: Room 302, Engineering Building, Example University",
+      "link": "",
+      "isExample": true
+    },
+    {
+      "id": "interface-discussion",
+      "title": "A closer look at electrolyte interfaces",
+      "date": "2026-08-21",
+      "category": "연구",
+      "body": "Example news: The group discussed literature on electrode–electrolyte reactions, distinguished observations from interpretations, and identified questions for future experiments.",
+      "link": "",
+      "isExample": true
+    }
+  ],
   "join": {
     "title": "Open Positions",
     "introduction": "Explore opportunities in materials design, electrochemistry and integrated devices.",
@@ -640,46 +751,53 @@
       "isExample": true
     }
   ],
-  "homeSlides": [
+  "events": [
     {
-      "id": "home-image-first",
-      "title": "Materials research",
-      "image": "assets/research-in-focus.webp",
-      "caption": "Materials research · AI-generated concept",
-      "imageAlt": "AI-generated concept image of gloved hands carefully positioning a small material specimen with tweezers beneath a stereomicroscope.",
-      "visible": true
+      "id": "seminar-interface",
+      "title": "Electrolytes and interfaces seminar",
+      "date": "2026-09-24",
+      "endDate": "",
+      "time": "15:00–16:00 (KST)",
+      "category": "세미나",
+      "location": "Room 302, Engineering Building, Example University",
+      "description": "Example event: An introduction to electrode–electrolyte reactions and analytical methods, followed by a discussion of related literature.",
+      "link": "",
+      "isExample": true
     },
     {
-      "id": "battery-cell-research",
-      "title": "Battery cell research",
-      "image": "assets/battery-research.webp",
-      "caption": "Battery research · AI-generated concept",
-      "imageAlt": "AI-generated concept of gloved hands assembling a coin cell at a laboratory glovebox station.",
-      "visible": true
+      "id": "battery-data-workshop",
+      "title": "Battery data analysis workshop",
+      "date": "2026-10-08",
+      "endDate": "",
+      "time": "14:00–17:00 (KST)",
+      "category": "워크숍",
+      "location": "Room 301, Engineering Building, Example University",
+      "description": "Example event: Practice organizing battery cycling data, preparing plots, and interpreting impedance measurements.",
+      "link": "",
+      "isExample": true
     },
     {
-      "id": "electrode-processing",
-      "title": "Electrode processing",
-      "image": "assets/electrode-processing.webp",
-      "caption": "Electrode processing · AI-generated concept",
-      "imageAlt": "AI-generated concept of a researcher adjusting a precision coating head over an electrode film on copper foil.",
-      "visible": true
-    },
-    {
-      "id": "solid-state-manufacturing",
-      "title": "Solid-state battery manufacturing",
-      "image": "assets/solid-state-manufacturing.webp",
-      "caption": "Solid-state batteries · AI-generated concept",
-      "imageAlt": "Gloved hands preparing a solid electrolyte pellet and pressing die for solid-state battery research.",
-      "visible": true
-    },
-    {
-      "id": "aqueous-battery-research",
-      "title": "Aqueous rechargeable batteries",
-      "image": "assets/aqueous-battery-research.webp",
-      "caption": "Aqueous batteries · AI-generated concept",
-      "imageAlt": "A transparent electrochemical cell with aqueous electrolyte and wired electrodes prepared for rechargeable battery testing.",
-      "visible": true
+      "id": "summer-research-meeting",
+      "title": "Summer research meeting",
+      "date": "2026-08-28",
+      "endDate": "",
+      "time": "14:00–16:00 (KST)",
+      "category": "연구실 행사",
+      "location": "Room 302, Engineering Building, Example University",
+      "description": "Example event: Share summer research progress and discuss research plans for the next semester.",
+      "link": "",
+      "isExample": true
     }
-  ]
+  ],
+  "contact": {
+    "email": "lab@example.org",
+    "phone": "",
+    "address": "ETRI headquarters\n218 Gajeong-ro, Yuseong-gu, Daejeon, 34129, Republic of Korea",
+    "room": "",
+    "transport": "Refer to the ETRI website for campus directions. Please confirm the lab building and room before visiting.",
+    "visiting": "Please email to arrange a visit. Include the purpose of your visit and your preferred date and time.",
+    "inquiry": "For research collaboration or technical inquiries, send a short description of your interests, proposed work and preferred contact details.",
+    "mapUrl": "",
+    "isExample": true
+  }
 }
