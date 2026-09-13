@@ -422,20 +422,20 @@
       "authors": "Dong Won Hae, Hoseok Lee, Hyeong Jun Kook, Ga Hee Kim, Saehun Kim, Jaecheol Choi, Min Pyeong Kim, Seok Hun Kang, Won Jun Lee, Young-Gi Lee, Hyeong Min Jin, Jongsoon Kim & Dong Ok Shin",
       "venue": "Nano-Micro Letters",
       "year": 2026,
-      "impactFactor": "",
+      "impactFactor": "36.3",
       "metricYear": "",
       "metricSource": "",
       "type": "저널",
       "keywords": "Aqueous zinc-ion battery; Block copolymer template; Au nanoseed",
       "issn": "",
-      "articleUrl": "",
+      "articleUrl": "https://link.springer.com/article/10.1007/s40820-026-02167-y",
       "importNote": "PDF draft. Check the journal, year and English author list. PDF keywords Online metadata unavailable; PDF fields retained.",
       "sourceHash": "c60495d54d4f439e05c72c85de016d562a90ad28846621bdefff5b6b4b31b436",
       "details": "",
       "pdf": "",
       "code": "",
       "isExample": false,
-      "selectedForPI": false
+      "selectedForPI": true
     },
     {
       "id": "paper-2026-interface",
