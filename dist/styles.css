@@ -491,6 +491,30 @@
 
 .editor-workspace .field-pages.image-fields{overflow-y:auto;align-content:start;grid-auto-rows:max-content;padding-right:8px}
 
+/* Keep list management beside the entry selector, where editors can find it. */
+.editor-record-head .record-tools{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.record-total{display:inline-block;font-size:11px;font-weight:400;color:var(--muted);margin-left:6px}
+.record-add-tools,.record-order-mode,.record-order-tools,.record-position{display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+.record-add-tools .add-entry{background:var(--navy);border-color:var(--navy);color:white}
+.record-picker{display:grid;gap:5px;min-width:0}
+.record-picker>label,.record-order-mode>label,.record-order-title,.record-position>label{font-size:11px;color:var(--muted)}
+.record-picker>label{display:flex;justify-content:space-between;gap:12px}
+.record-picker>label span{font-variant-numeric:tabular-nums}
+.editor-record-head .record-picker .record-select{max-width:100%;width:100%;min-width:0;padding:8px 10px}
+.record-order-mode select{font-size:12px;padding:6px 9px;border:1px solid var(--line);border-radius:3px;background:white;color:var(--navy)}
+.record-order-tools{background:#f5f7fa;border:1px solid var(--line);border-radius:4px;padding:9px}
+.record-order-title{flex-basis:100%;font-weight:600;color:var(--navy)}
+.record-position{gap:5px}
+.record-position input{width:52px;min-height:32px;padding:5px 6px;font-size:13px;color:var(--navy);border:1px solid var(--line);border-radius:3px;background:white}
+.record-order-tools .mini-button{background:white;min-height:32px}
+.record-order-tools .delete-entry{color:#a42e2e;border-color:#decaca;margin-left:auto}
+.record-add-tools .undo-entry{color:var(--blue);border-color:#b8cada}
+.record-order-help{font-size:11px;line-height:1.6;color:var(--muted);margin:0}
+.editor-main.editor-list-section{overflow-y:auto;overflow-x:hidden;grid-template-rows:auto auto auto;align-content:start;scrollbar-gutter:stable;padding-right:9px;padding-bottom:20px}
+.editor-list-section .field-pages{height:auto;overflow:visible;grid-auto-rows:max-content}
+.editor-list-section>.pager{display:none}
+@media(max-width:600px){.record-order-tools{gap:6px}.record-order-tools .mini-button{font-size:11px;padding:6px 8px}.record-position input{font-size:16px}.record-order-help{font-size:10px}.editor-main.editor-list-section{padding-right:5px}.record-order-tools .delete-entry{margin-left:0}.record-add-tools{gap:6px}}
+
 /* Reference wordmark: regular-weight live text next to the supplied symbol. */
 .site-page .brand .wordmark{font-family:'Space Grotesk',Inter,sans-serif;font-size:32px;font-weight:400;letter-spacing:-1.6px;line-height:1;white-space:nowrap}
 .site-page .brand{gap:16px}

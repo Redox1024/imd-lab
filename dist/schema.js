@@ -1,3 +1,4 @@
+import {normalizeListOrder} from './list-order.js';
 export const sections = {site:'Lab settings',home:'Home intro',homeSlides:'Home images',homeNotes:'Archived home notes',navigation:'Navigation',pages:'Extra pages',professor:'Professor',research:'Research',people:'Members',covers:'Cover gallery',publications:'Papers',journals:'Journal IF',patents:'Patents',news:'News',join:'Join Us',positions:'Open positions',events:'Archived events',contact:'Contact'};
 export const singleSections = ['site','home','professor','contact','join'];
 // key, label, input type, required, help/options
@@ -51,7 +52,7 @@ export function validateContent(data){
     source.homeSlides=[{id,title:'Materials research',image:source.home.image,imageAlt:source.home.imageAlt||'',caption:source.home.caption||'',visible:true},...source.homeSlides];
   }
   for(const key of ['primaryTarget','secondaryTarget','tertiaryTarget'])if(String(source.home[key]||'').startsWith('#events'))source.home[key]='#news';
-  const clean={schemaVersion:1};
+  const clean={schemaVersion:1,listOrder:normalizeListOrder(data.listOrder)};
   for(const [section,spec] of Object.entries(fields)){
     const singular=singleSections.includes(section),raw=source[section];
     if(singular?(!raw||typeof raw!=='object'||Array.isArray(raw)):!Array.isArray(raw))throw new Error(sections[section]+': Invalid data format.');

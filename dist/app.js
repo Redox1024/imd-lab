@@ -1,5 +1,6 @@
 import {escapeHTML as e,safeURL,safeImage,hasExamples,validateContent,safeDestination,enumLabel,logoDesigns} from './schema.js';
 import {mountHeroCarousel} from './hero-carousel.js';
+import {orderRecords} from './list-order.js';
 import {journalMetric,keywordList} from './publication-data.js';
 let destroyHeroCarousel=null;
 let data,navPage=0,readingText='',routeKey='home',coverPage=0;
@@ -13,8 +14,8 @@ const emailLink=email=>email?`<a href="mailto:${e(email)}">${e(email)}</a>`:'';
 const avatar=p=>safeImage(p.photo)?`<span class="avatar"><img src="${e(safeImage(p.photo))}" alt="${e(p.name)}" loading="lazy"></span>`:`<span class="avatar" aria-hidden="true">${e((p.name||'IMD').split(/\s+/).map(n=>n[0]).slice(0,2).join(''))}</span>`;
 const tabs=(items,selected)=>`<div class="view-tabs">${items.map(([route,label])=>`<a href="#${route}" ${route===selected?'aria-current="page"':''}>${e(label)}</a>`).join('')}</div>`;
 const menuLabel=route=>data.navigation.find(n=>n.target==='#'+route)?.label||labels[route]||route;
-const newsSorted=()=>[...data.news].sort((a,b)=>b.date.localeCompare(a.date));
-const papersSorted=()=>data.publications.map((paper,index)=>({paper,index})).sort((a,b)=>b.paper.year-a.paper.year||b.index-a.index).map(({paper})=>paper);
+const newsSorted=()=>orderRecords(data.news,'news',data.listOrder.news);
+const papersSorted=()=>orderRecords(data.publications,'publications',data.listOrder.publications);
 const head=(title,description='',controls='')=>`<div class="screen-head"><div><p class="eyebrow">${e(data.site.shortName||'IMD Lab')}</p><h1>${e(title)}</h1>${description?`<p class="screen-description">${e(description)}</p>`:''}</div>${controls}</div>`;
 function collection(title,description,items,renderer,controls='',list=false){
  return `<section class="screen collection-screen">${head(title,description,controls)}<div class="content-viewport">${items.length?`<div class="items ${list?'list':''}">${items.map(renderer).join('')}</div>`:'<p class="empty">New updates are on the way.</p>'}</div>${items.some(x=>x.isExample)?'<p class="page-example">Example entries for this website template.</p>':''}</section>`;
@@ -74,7 +75,7 @@ function personCard(p){return `<article class="entry person-entry"><div class="p
 function paperCard(p){const metric=journalMetric(p,data.journals),article=safeURL(p.articleUrl)||safeURL(p.doi),keywords=keywordList(p.keywords);return `<article class="entry record publication-record"><div class="record-meta">${e(p.year)}</div><div class="publication-body"><div class="journal-line"><span>${e(p.venue)}</span>${metric.source?`<a class="if-value" href="${e(metric.source)}" target="_blank" rel="noopener noreferrer" aria-label="${e(metric.label+' · verified '+metric.updated)}">${e(metric.label)}</a>`:`<span class="if-value unavailable" aria-label="IF ${e(enumLabel(metric.status))}">${e(metric.label)}</span>`}</div><h2 class="entry-title"><a href="#publications/${e(p.id)}">${e(p.title)}</a> ${badge(p)}</h2><p class="publication-authors">${e(p.authors)}</p></div><div class="publication-keywords">${keywords.map(k=>`<span>${e(k)}</span>`).join('')}</div><div class="article-actions">${article?`<a href="${e(article)}" target="_blank" rel="noopener noreferrer">View article ↗</a>`:'<span class="unavailable" aria-disabled="true" aria-label="Article link not provided">View article ↗</span>'}</div></article>`;}
 function recordCard(p,index,kind){const patent=kind==='patents';return `<article class="entry record"><div class="record-meta">${e(dateText(p.date))}<span class="type-tag">${e(enumLabel(patent?p.status:p.category))}</span></div><div><h2 class="entry-title">${e(p.title)} ${badge(p)}</h2><p class="entry-description">${e(patent?p.inventors:short(p.body,180))}</p>${patent?`<p class="entry-description">${e(p.number)}</p>`:''}</div><a class="record-open" href="#${kind}/${e(p.id)}">Read more ↗</a></article>`;}
 function publications(isPatent=false){
- const items=isPatent?[...data.patents].sort((a,b)=>b.date.localeCompare(a.date)):papersSorted();
+ const items=isPatent?orderRecords(data.patents,'patents',data.listOrder.patents):papersSorted();
  return `<section class="screen collection-screen publications-page">${head(menuLabel('publications'),'Research articles and intellectual property.',tabs([['publications','Papers'],['patents','Patents']],isPatent?'patents':'publications'))}${isPatent?'':coverGallery()}<div class="publication-list-heading"><h2>${isPatent?'Patents':'Publications'}</h2>${isPatent?'':'<p>IF values include their reference year.</p>'}</div><div class="items list">${items.length?items.map(p=>isPatent?recordCard(p,0,'patents'):paperCard(p)).join(''):'<p class="empty">New records will appear here.</p>'}</div>${items.some(p=>p.isExample)?'<p class="page-example">Marked records and concept covers are fictional examples.</p>':''}</section>`;
 }
 function joinUs(){
