@@ -16,9 +16,9 @@ assert.equal(paper.authors,'Seokyoon Yoon, Seok Hun Kang, Jaecheol Choi, Ju Youn
 assert.equal(paper.venue,'Small');assert.equal(paper.year,2025,'Final issue year takes priority over online-first year 2024');
 assert.equal(paper.details,'21 (13) 2407882');assert.equal(paper.issn,'1613-6810; 1613-6829');assert.equal(paper.doi,url);
 assert.equal(Object.hasOwn(paper,'impactFactor'),false,'DOI never supplies IF');
-const original=Object.freeze({id:'kept-id',title:'Old title',doi:url,impactFactor:'12.3',metricYear:2024,metricSource:'https://example.org/if',selectedForPI:true,pdf:'https://example.org/paper.pdf',code:'https://example.org/code',keywords:'Custom keyword',importNote:'My note',isExample:false});
+const original=Object.freeze({id:'kept-id',title:'Old title',doi:url,impactFactor:'12.3',metricYear:2024,metricSource:'https://example.org/if',selectedForPI:true,showSpecialNote:true,specialNote:'Front cover image',pdf:'https://example.org/paper.pdf',code:'https://example.org/code',keywords:'Custom keyword',importNote:'My note',isExample:false});
 const updated=mergeDOIFields(original,paper);
-for(const key of ['id','impactFactor','metricYear','metricSource','selectedForPI','pdf','code','keywords','importNote'])assert.equal(updated[key],original[key],key);
+for(const key of ['id','impactFactor','metricYear','metricSource','selectedForPI','showSpecialNote','specialNote','pdf','code','keywords','importNote'])assert.equal(updated[key],original[key],key);
 assert.equal(updated.title,paper.title);assert.equal(original.title,'Old title');
 const partial=mergeDOIFields(updated,{title:'Revised title',authors:'',venue:'',year:'',keywords:''});
 assert.equal(partial.title,'Revised title');assert.equal(partial.authors,paper.authors);assert.equal(partial.venue,'Small');assert.equal(partial.year,2025);

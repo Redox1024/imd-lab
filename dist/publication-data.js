@@ -19,6 +19,7 @@ export function journalMetric(paper){
  const year=/^(18|19|20|21)\d{2}$/.test(String(paper?.metricYear??''))?paper.metricYear:'';
  return {label:`IF ${value}${year?' · '+year:''}`,source:safeURL(paper?.metricSource),updated:'',status:'manual',verified:false};
 }
+export const publicationSpecialNote=paper=>paper?.showSpecialNote===true?String(paper.specialNote??'').trim():'';
 export const keywordList=value=>[...new Set(String(value||'').split(/[;；\n]+/).map(x=>x.trim()).filter(Boolean))].slice(0,3);
 export function extractKeywords(text,metadata=[]){
  const explicit=String(text||'').match(/(?:key\s*words?|키워드|주제어)\s*[:：]?\s*([^\n]{8,240}(?:\n[^\n]{5,100})?)/i);

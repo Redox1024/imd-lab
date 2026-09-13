@@ -559,3 +559,7 @@ html.lab-site{scrollbar-gutter:stable}
 .doi-actions .doi-fill{background:var(--navy);border-color:var(--navy);color:white}
 .doi-feedback{font-size:12px;line-height:1.6;color:var(--muted);margin:9px 0 0}
 .doi-feedback[data-error="true"]{color:#a42e2e}
+
+/* Optional, manually entered publication distinctions beside the IF. */
+.site-page .paper-special-note{font-size:11px;font-weight:500;font-style:normal;line-height:1.55;color:var(--blue);border-left:1px solid var(--line);padding-left:10px;min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.site-page .home-journal>.paper-special-note{display:inline;font-size:12px;white-space:normal;overflow-wrap:anywhere}
