@@ -521,7 +521,7 @@
       "impactFactor": "12.1",
       "metricYear": "",
       "metricSource": "",
-      "showSpecialNote": false,
+      "showSpecialNote": true,
       "specialNote": "Inside cover image",
       "type": "저널",
       "keywords": "Solid-state batteries; Electrolytes; Energy storage",
