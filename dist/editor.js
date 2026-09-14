@@ -1,10 +1,10 @@
-import {sections,fields,singleSections,escapeHTML as e,validateContent,newRecord,destinationOptions,enumLabel} from './schema.js?v=20260914-journal4';
-import {elementPages} from './pagination.js?v=20260914-journal4';
-import {renderLiveCard} from './live-preview.js?v=20260914-journal4';
-import {upsertImported,doiValue} from './publication-data.js?v=20260914-journal4';
-import {lookupDOI,normalizeDOI,mergeDOIFields} from './doi-import.js?v=20260914-journal4';
-import {orderRecords} from './list-order.js?v=20260914-journal4';
-import {authorEntries,normalizeAuthorRoles,updateAuthorRole,renderAuthors,authorLegend} from './author-roles.js?v=20260914-journal4';
+import {sections,fields,singleSections,escapeHTML as e,validateContent,newRecord,destinationOptions,enumLabel} from './schema.js?v=20260914-paper5';
+import {elementPages} from './pagination.js?v=20260914-paper5';
+import {renderLiveCard} from './live-preview.js?v=20260914-paper5';
+import {upsertImported,doiValue} from './publication-data.js?v=20260914-paper5';
+import {lookupDOI,normalizeDOI,mergeDOIFields} from './doi-import.js?v=20260914-paper5';
+import {orderRecords} from './list-order.js?v=20260914-paper5';
+import {authorEntries,normalizeAuthorRoles,updateAuthorRole,renderAuthors,authorLegend} from './author-roles.js?v=20260914-paper5';
 let liveTimer,documentController;
 const doiFeedback=new Map();
 let draft,active='site',recordIndex=0,dirty=false,previewWindow,fieldPager,fieldPage=0,deletedEntry;
@@ -41,6 +41,7 @@ function fieldMarkup(spec,record){
   const feedback=doiFeedback.get(record.id);
   input=`<input ${attrs} type="text" value="${e(value)}" placeholder="https://doi.org/10.1002/smll.202407882" autocomplete="off" spellcheck="false"><div class="doi-actions"><button class="mini-button doi-fill" type="button" data-action="doi">Fill from DOI</button><button class="mini-button" type="button" data-action="manual">Enter manually</button></div><p class="doi-feedback" id="doi-feedback" role="status" data-error="${!!feedback?.error}">${e(feedback?.message||'Fill the fields below from a DOI, or enter the details manually. IF is entered manually for each paper.')}</p>`;
  }
+ else if(active==='publications'&&key==='impactFactor')input=`<input ${attrs} type="text" value="${e(value)}" placeholder="e.g. 12.1 or &lt;0.1" autocomplete="off" spellcheck="false">`;
  else if(type==='textarea')input=`<textarea ${attrs} rows="3">${e(value)}</textarea>`;
  else if(type==='select')input=`<select ${attrs}>${!required?'<option value="">None</option>':''}${extra.map(v=>`<option value="${e(v)}" ${value===v?'selected':''}>${e(enumLabel(v))}</option>`).join('')}</select>`;
  else if(type==='destination'){const choices=destinationOptions(draft);input=`<select ${attrs}><option value="">No link</option>${value&&!choices.some(([v])=>v===value)?`<option value="${e(value)}" selected>Missing page — choose again</option>`:''}${choices.map(([v,label])=>`<option value="${e(v)}" ${value===v?'selected':''}>${e(label)}</option>`).join('')}</select>`;}
@@ -174,7 +175,7 @@ document.querySelector('#cancel-document').addEventListener('click',()=>document
 document.querySelector('#document-file').addEventListener('change',async event=>{
  const files=Array.from(event.target.files||[]),kind=event.target.dataset.kind;event.target.value='';if(!files.length||kind!=='patents')return;if(files.length>5){report('Select up to five files at a time.',true);return;}
  documentController=new AbortController();setImportBusy(true);const summary=[];
- try{const {importDocument}=await import('./document-import.js?v=20260914-journal4');for(const [index,file] of files.entries()){
+ try{const {importDocument}=await import('./document-import.js?v=20260914-paper5');for(const [index,file] of files.entries()){
   if(documentController.signal.aborted)break;report(`${index+1}/${files.length} · ${file.name} · Reading`);
   try{const imported=await importDocument(file,kind,msg=>report(`${index+1}/${files.length} · ${msg}`),documentController.signal),record={...newRecord(kind),...imported};const result=upsertImported(draft[kind],record,kind),item=draft[kind][result.index];active=kind;recordIndex=currentRecords().indexOf(item);fieldPage=0;markDirty();render();main.scrollTop=0;summary.push(file.name+': '+({added:'Added',updated:'Grant status updated',duplicate:'Existing entry found'}[result.action]));}
   catch(error){if(error.name==='AbortError')break;summary.push(file.name+': '+error.message);}

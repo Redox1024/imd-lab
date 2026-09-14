@@ -1,4 +1,4 @@
-import {safeURL} from './schema.js?v=20260914-journal4';
+import {safeURL} from './schema.js?v=20260914-paper5';
 export const normalizeTitle = value => String(value||'').normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
 export const issns = value => [...new Set((String(value||'').toUpperCase().match(/\d{4}-?\d{3}[\dX]/g)||[]).map(x=>x.replace('-','')).map(x=>x.slice(0,4)+'-'+x.slice(4)))];
 export function doiValue(value){

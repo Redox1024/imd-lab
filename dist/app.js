@@ -1,9 +1,9 @@
-import {escapeHTML as e,safeURL,safeImage,hasExamples,validateContent,safeDestination,enumLabel,logoDesigns} from './schema.js?v=20260914-journal4';
-import {mountHeroCarousel} from './hero-carousel.js?v=20260914-journal4';
-import {orderRecords} from './list-order.js?v=20260914-journal4';
-import {paperArticleURL} from './doi-import.js?v=20260914-journal4';
-import {journalMetric,keywordList,publicationSpecialNote} from './publication-data.js?v=20260914-journal4';
-import {renderAuthors,authorLegend} from './author-roles.js?v=20260914-journal4';
+import {escapeHTML as e,safeURL,safeImage,hasExamples,validateContent,safeDestination,enumLabel,logoDesigns} from './schema.js?v=20260914-paper5';
+import {mountHeroCarousel} from './hero-carousel.js?v=20260914-paper5';
+import {orderRecords} from './list-order.js?v=20260914-paper5';
+import {paperArticleURL} from './doi-import.js?v=20260914-paper5';
+import {journalMetric,keywordList,publicationSpecialNote} from './publication-data.js?v=20260914-paper5';
+import {renderAuthors,authorLegend} from './author-roles.js?v=20260914-paper5';
 let destroyHeroCarousel=null;
 let data,navPage=0,readingText='',routeKey='home',coverPage=0;
 const main=document.querySelector('#main');
@@ -80,7 +80,7 @@ function personCard(p){return `<article class="entry person-entry"><div class="p
 function paperCard(p){
  const metric=journalMetric(p),article=paperArticleURL(p),keywords=keywordList(p.keywords),note=specialNoteMarkup(p),separator='<span class="publication-separator" aria-hidden="true">|</span>';
  const metricMarkup=metric.source?`<a class="if-value" href="${e(metric.source)}" target="_blank" rel="noopener noreferrer" aria-label="${e(metric.label+' · source')}">${e(metric.label)}</a>`:`<span class="if-value ${metric.label==='IF —'?'unavailable':''}" aria-label="${e(metric.label)}">${e(metric.label)}</span>`;
- return `<article class="entry record publication-record"><div class="record-meta">${e(p.year)}</div><div class="publication-body"><div class="journal-line publication-meta-heading"><span class="publication-venue">${e(p.venue)}</span> ${separator} ${metricMarkup}${note?` ${separator} ${note}`:''} ${badge(p)}</div><h2 class="entry-title">${e(p.title)}</h2><p class="publication-authors">${renderAuthors(p)}</p>${keywords.length?`<div class="publication-keywords">${keywords.map(k=>`<span>${e(k)}</span>`).join('')}</div>`:''}<div class="article-actions">${article?`<a href="${e(article)}" target="_blank" rel="noopener noreferrer">View article ↗</a>`:'<span class="unavailable" aria-disabled="true" aria-label="Article link not provided">View article ↗</span>'}</div></div></article>`;
+ return `<article class="entry record publication-record"><div class="record-meta">${e(p.year)}</div><div class="publication-body"><div class="journal-line publication-meta-heading"><span class="publication-venue">${e(p.venue)}</span> ${separator} ${metricMarkup}${note?` ${separator} ${note}`:''} ${badge(p)}</div><h2 class="entry-title">${e(p.title)}</h2><p class="publication-authors">${renderAuthors(p)}</p><div class="publication-footer">${keywords.length?`<div class="publication-keywords">${keywords.map(k=>`<span>${e(k)}</span>`).join('')}</div>`:''}<div class="article-actions">${article?`<a href="${e(article)}" target="_blank" rel="noopener noreferrer">View article ↗</a>`:'<span class="unavailable" aria-disabled="true" aria-label="Article link not provided">View article ↗</span>'}</div></div></div></article>`;
 }
 function recordCard(p,index,kind){const patent=kind==='patents';return `<article class="entry record"><div class="record-meta">${e(dateText(p.date))}<span class="type-tag">${e(enumLabel(patent?p.status:p.category))}</span></div><div><h2 class="entry-title">${e(p.title)} ${badge(p)}</h2><p class="entry-description">${e(patent?p.inventors:short(p.body,180))}</p>${patent?`<p class="entry-description">${e(p.number)}</p>`:''}</div><a class="record-open" href="#${kind}/${e(p.id)}">Read more ↗</a></article>`;}
 function publications(isPatent=false){
