@@ -1,4 +1,4 @@
-import {safeURL} from './schema.js';
+import {safeURL} from './schema.js?v=20260914-journal4';
 export const normalizeTitle = value => String(value||'').normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
 export const issns = value => [...new Set((String(value||'').toUpperCase().match(/\d{4}-?\d{3}[\dX]/g)||[]).map(x=>x.replace('-','')).map(x=>x.slice(0,4)+'-'+x.slice(4)))];
 export function doiValue(value){
@@ -16,8 +16,7 @@ export function ensureJournal(paper,journals){if(!paper.venue)return null;let jo
 export function journalMetric(paper){
  const value=String(paper?.impactFactor??'').trim();
  if(!/^<?\d+(?:\.\d+)?$/.test(value))return {label:'IF —',source:'',updated:'',status:'unavailable',verified:false};
- const year=/^(18|19|20|21)\d{2}$/.test(String(paper?.metricYear??''))?paper.metricYear:'';
- return {label:`IF ${value}${year?' · '+year:''}`,source:safeURL(paper?.metricSource),updated:'',status:'manual',verified:false};
+ return {label:`IF ${value}`,source:safeURL(paper?.metricSource),updated:'',status:'manual',verified:false};
 }
 export const publicationSpecialNote=paper=>paper?.showSpecialNote===true?String(paper.specialNote??'').trim():'';
 export const keywordList=value=>[...new Set(String(value||'').split(/[;；\n]+/).map(x=>x.trim()).filter(Boolean))].slice(0,3);

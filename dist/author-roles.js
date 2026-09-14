@@ -1,7 +1,7 @@
 // Roles are attached to a name and its zero-based occurrence, never its position.
 // Enter full names separated by commas, or use semicolons / one name per line
 // when an individual name contains a comma. All annotations are optional.
-const roleKeys=['first','corresponding','bold'];
+const roleKeys=['first','corresponding','bold','underline'];
 const normalizeName=value=>value.normalize('NFKC').replace(/\s+/gu,' ').trim();
 const identity=entry=>JSON.stringify([entry.name,entry.occurrence]);
 const escapeHTML=value=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
@@ -39,11 +39,11 @@ export function normalizeAuthorRoles(value,authors){
 
 export function authorEntries(paper){
  const roles=new Map(normalizeAuthorRoles(paper?.authorRoles,paper?.authors).map(role=>[identity(role),role]));
- return namesFromText(paper?.authors).map(entry=>({...entry,first:false,corresponding:false,bold:false,...roles.get(identity(entry))}));
+ return namesFromText(paper?.authors).map(entry=>({...entry,first:false,corresponding:false,bold:false,underline:false,...roles.get(identity(entry))}));
 }
 
 export function updateAuthorRole(paper,index,role,checked){
- if(!roleKeys.includes(role))throw new TypeError('Author roles: Choose first, corresponding or bold.');
+ if(!roleKeys.includes(role))throw new TypeError('Author roles: Choose first, corresponding, bold or underline.');
  if(typeof checked!=='boolean')throw new TypeError('Author roles: A checkbox value is required.');
  const entries=authorEntries(paper);
  if(!Number.isInteger(index)||index<0||index>=entries.length)throw new RangeError('Author roles: Choose an author from the current list.');
@@ -54,6 +54,7 @@ export function updateAuthorRole(paper,index,role,checked){
 export function renderAuthors(paper){
  return authorEntries(paper).map(author=>{
   let name=escapeHTML(author.name);
+  if(author.underline)name='<span class="author-underlined">'+name+'</span>';
   if(author.bold)name='<strong>'+name+'</strong>';
   const markers=(author.first?'†':'')+(author.corresponding?'*':'');
   const labels=[author.first?'First / co-first author':'',author.corresponding?'Corresponding author':''].filter(Boolean).join('; ');

@@ -1,6 +1,6 @@
-import {paperFromCrossref,doiValue} from './publication-data.js';
-import {safeURL} from './schema.js';
-import {normalizeAuthorRoles} from './author-roles.js';
+import {paperFromCrossref,doiValue} from './publication-data.js?v=20260914-journal4';
+import {safeURL} from './schema.js?v=20260914-journal4';
+import {normalizeAuthorRoles} from './author-roles.js?v=20260914-journal4';
 
 // Only a DOI or a DOI resolver URL is accepted; other text stays editable.
 export function normalizeDOI(value){

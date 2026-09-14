@@ -557,9 +557,9 @@ html.lab-site{scrollbar-gutter:stable}
 /* Author selections stay alongside the full author list. */
 .author-role-picker{min-width:0;margin:14px 0 0;padding:14px 16px;border:1px solid var(--line);border-radius:3px}
 .author-role-picker legend{font-size:14px;font-weight:600;padding-inline:5px;color:var(--navy)}
-.author-role-row{padding:10px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(150px,1fr) auto;gap:12px;align-items:center}
+.author-role-row{padding:10px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(130px,.85fr) minmax(0,1.7fr);gap:12px;align-items:center}
 .author-role-name{font-size:14px;overflow-wrap:anywhere}
-.author-role-options{display:flex;flex-wrap:wrap;gap:8px 16px}
+.author-role-options{display:flex;flex-wrap:wrap;gap:8px 16px;min-width:0}
 .field .author-role-options label{display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer;min-height:36px}
 .field .author-role-options input[type=checkbox]{flex:none;width:19px;height:19px;margin:0;padding:0}
 .author-role-result{margin-top:16px}
@@ -583,3 +583,29 @@ html.lab-site{scrollbar-gutter:stable}
 /* Optional, manually entered publication distinctions beside the IF. */
 .site-page .paper-special-note{font-size:11px;font-weight:500;font-style:normal;line-height:1.55;color:var(--blue);border-left:1px solid var(--line);padding-left:10px;min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere}
 .site-page .home-journal>.paper-special-note{display:inline;font-size:12px;white-space:normal;overflow-wrap:anywhere}
+/* Publication headings, author annotations and compact paper rows. */
+.author-underlined{text-decoration-line:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.site-page .publication-record{grid-template-columns:56px minmax(0,1fr);column-gap:22px;row-gap:0;padding-block:22px;align-items:start}
+.site-page .publication-record .record-meta{grid-column:1;grid-row:1;font-size:13px;padding-top:4px}
+.site-page .publication-record .publication-body{grid-column:2;grid-row:1;min-width:0}
+.site-page .publication-record .publication-meta-heading{display:block;margin:0 0 7px;font-size:17px;line-height:1.6;overflow-wrap:anywhere}
+.site-page .publication-meta-heading .publication-venue{font-style:italic}
+.site-page .publication-meta-heading .if-value,.site-page .publication-meta-heading .paper-special-note{font-family:inherit;font-size:inherit;line-height:inherit;font-style:normal;vertical-align:baseline}
+.site-page .publication-meta-heading .paper-special-note{border-left:0;padding-left:0}
+.site-page .publication-meta-heading .publication-separator{display:inline;color:var(--line);padding-inline:8px;font-size:inherit;font-style:normal;font-weight:400}
+.site-page .publication-record .entry-title{display:block;line-height:1.5;overflow:visible;-webkit-line-clamp:unset;margin:0 0 7px;cursor:default}
+.site-page .publication-record .publication-authors{margin:0;display:block;overflow:visible;line-height:1.75}
+.site-page .publication-record .publication-keywords{display:flex;grid-column:auto;grid-row:auto;flex-wrap:wrap;gap:3px 14px;margin:7px 0 0;align-self:auto}
+.site-page .publication-record .publication-keywords span{font-size:13px;line-height:1.6}
+.site-page .publication-record .article-actions{display:block;grid-column:auto;grid-row:auto;align-self:auto;justify-self:auto;text-align:left;white-space:normal;margin-top:5px;line-height:1.5;font-size:14px}
+.site-page .publication-record .article-actions a{padding-block:0}
+.site-page .publication-record .article-actions .unavailable{font-size:inherit}
+.site-page .pi-selected-section .publication-record{padding-block:22px}
+/* Shortcut underlines follow the text; arrows scale with the label. */
+.site-page .home-refined .intro-actions{display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-start;gap:16px 34px;max-width:none;grid-template-columns:none}
+.site-page .home-refined .intro-actions a{display:inline-flex;position:relative;align-items:baseline;justify-content:flex-start;gap:.4em;min-width:0;min-height:48px;width:auto;padding:8px 0;border:0;white-space:nowrap;text-align:left}
+.site-page .home-refined .intro-actions a .shortcut-label{display:inline-block;border-bottom:1px solid #8b9ca6;padding-bottom:4px}
+.site-page .home-refined .intro-actions a .shortcut-arrow{display:inline-block;position:static;top:auto;right:auto;width:auto;height:auto;flex:none;font-size:.85em;font-weight:500;line-height:1;color:inherit}
+@media(max-width:1100px){.site-page .home-refined .intro-actions{gap:14px 25px}.site-page .home-refined .intro-actions a{padding-inline:0}}
+@media(max-width:640px){.site-page .publication-record{grid-template-columns:36px minmax(0,1fr);column-gap:12px;row-gap:0;padding-block:18px}.site-page .publication-record .record-meta{grid-row:1;padding-top:3px}.site-page .publication-record .publication-meta-heading{font-size:16px}.site-page .publication-record .publication-keywords span{font-size:12px}.site-page .publication-record .article-actions{font-size:13px;margin-top:5px}.site-page .home-refined .intro-actions{gap:12px 24px}.site-page .home-refined .intro-actions a{padding:7px 0;white-space:nowrap;min-height:44px}.site-page .home-refined .intro-actions a .shortcut-arrow{display:inline-block}}
+@media(max-width:380px){.site-page .home-refined .intro-actions{gap:10px 20px}}

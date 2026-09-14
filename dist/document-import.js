@@ -1,4 +1,4 @@
-import {doiValue,paperFromText,paperFromCrossref,patentFromText,looksLikeSamePaper} from './publication-data.js';
+import {doiValue,paperFromText,paperFromCrossref,patentFromText,looksLikeSamePaper} from './publication-data.js?v=20260914-journal4';
 const PDF_CDN='https://cdn.jsdelivr.net/npm/pdfjs-dist@6.3.289/';
 let pdfLibraryPromise,ocrScriptPromise;
 const metadataCache=new Map();

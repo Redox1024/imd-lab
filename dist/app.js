@@ -1,9 +1,9 @@
-import {escapeHTML as e,safeURL,safeImage,hasExamples,validateContent,safeDestination,enumLabel,logoDesigns} from './schema.js';
-import {mountHeroCarousel} from './hero-carousel.js';
-import {orderRecords} from './list-order.js';
-import {paperArticleURL} from './doi-import.js';
-import {journalMetric,keywordList,publicationSpecialNote} from './publication-data.js';
-import {renderAuthors,authorLegend} from './author-roles.js';
+import {escapeHTML as e,safeURL,safeImage,hasExamples,validateContent,safeDestination,enumLabel,logoDesigns} from './schema.js?v=20260914-journal4';
+import {mountHeroCarousel} from './hero-carousel.js?v=20260914-journal4';
+import {orderRecords} from './list-order.js?v=20260914-journal4';
+import {paperArticleURL} from './doi-import.js?v=20260914-journal4';
+import {journalMetric,keywordList,publicationSpecialNote} from './publication-data.js?v=20260914-journal4';
+import {renderAuthors,authorLegend} from './author-roles.js?v=20260914-journal4';
 let destroyHeroCarousel=null;
 let data,navPage=0,readingText='',routeKey='home',coverPage=0;
 const main=document.querySelector('#main');
@@ -46,13 +46,13 @@ function updateBrandLogo(){
 
 function home(){
  const h=data.home;
- const action=(label,target,kind)=>label&&safeDestination(target,data)?`<a class="${kind}" href="${e(target)}">${e(label)}<span class="shortcut-arrow" aria-hidden="true">↗</span></a>`:'';
+ const action=(label,target,kind)=>label&&safeDestination(target,data)?`<a class="${kind}" href="${e(target)}"><span class="shortcut-label">${e(label)}</span><span class="shortcut-arrow" aria-hidden="true">↗</span></a>`:'';
  const research=data.research.map((item,index)=>({item,index})).sort((a,b)=>(b.item.updated||'').localeCompare(a.item.updated||'')||b.index-a.index).slice(0,3).map(({item})=>item);
  return `<section class="home-page home-refined"><div class="meo-intro"><div class="intro-main"><div class="intro-copy">${h.eyebrow?`<p class="intro-eyebrow">${e(h.eyebrow)}</p>`:''}<h1>${e(h.headline)}</h1><p class="intro-description">${e(h.description)}</p><div class="intro-actions">${action(h.primaryLabel,h.primaryTarget,'intro-primary')}${action(h.secondaryLabel,h.secondaryTarget,'intro-secondary')}${action(h.tertiaryLabel,h.tertiaryTarget,'intro-secondary')}</div></div>${heroArtwork()}</div></div>
  <div class="home-updates" id="home-updates">
  <section class="home-research-section">${sectionHeading('research','Recent directions')}<div class="research-grid">${research.map(r=>`<a class="research-tile" href="#research"><p class="research-tag">${e(r.lensLabel||r.subtitle)}</p><h3>${e(r.title)}</h3><p>${e(short(r.goal||r.description,155))}</p><span class="tile-link">Explore research ↗</span></a>`).join('')||'<p class="empty">Research updates will appear here.</p>'}</div></section>
  ${h.showLatestNews?`<section class="home-news-section">${sectionHeading('news','Latest notes')}<div class="news-grid">${newsSorted().slice(0,3).map(n=>`<a class="news-tile" href="#news"><div class="tile-meta"><time>${e(dateText(n.date))}</time><span>${e(enumLabel(n.category))}</span></div><h3>${e(n.title)}</h3><p>${e(short(n.body,145))}</p><div class="tile-bottom">${badge(n)}<span>View news ↗</span></div></a>`).join('')||'<p class="empty">News will appear here.</p>'}</div></section>`:''}
- <section class="home-papers-section">${sectionHeading('publications','Recent work')}<div class="home-paper-list">${papersSorted().slice(0,3).map(p=>`<a class="home-paper" href="#publications"><span>${e(p.year)}</span><div><p class="home-journal">${e(p.venue)} <span>${e(journalMetric(p).label)}</span>${specialNoteMarkup(p)}</p><h3>${e(p.title)}</h3><p class="home-authors">${renderAuthors(p)}</p>${badge(p)}</div></a>`).join('')||'<p class="empty">Publications will appear here.</p>'}</div></section>
+ <section class="home-papers-section">${sectionHeading('publications','Recent work')}<div class="home-paper-list">${papersSorted().slice(0,3).map(p=>`<a class="home-paper" href="#publications"><span>${e(p.year)}</span><div><p class="home-journal">${e(p.venue)} <span>${e(journalMetric(p).label)}</span>${specialNoteMarkup(p)}</p><h3>${e(p.title)}</h3><p class="home-authors">${renderAuthors(p)}</p>${keywordList(p.keywords).length?`<div class="publication-keywords">${keywordList(p.keywords).map(k=>`<span>${e(k)}</span>`).join('')}</div>`:''}${badge(p)}</div></a>`).join('')||'<p class="empty">Publications will appear here.</p>'}</div></section>
  </div></section>`;
 }
 function academicRows(text){return `<ul class="pi-timeline">${text.split('\n').map(line=>line.trim()).filter(Boolean).map(line=>{const parts=line.split('|').map(part=>part.trim());return parts.length>1?`<li><span class="pi-period">${e(parts[0])}</span><div><strong>${e(parts[1])}</strong>${parts.slice(2).some(Boolean)?`<span class="pi-institution">${e(parts.slice(2).filter(Boolean).join(' · '))}</span>`:''}</div></li>`:`<li><div><span class="pi-institution">${e(line)}</span></div></li>`;}).join('')}</ul>`;}
@@ -77,11 +77,15 @@ function coverGallery(){
 }
 function researchCard(r,index){return `<article class="entry question-entry"><div class="question-kicker"><span>${String(index+1).padStart(2,'0')}</span>${e(r.lensLabel||r.subtitle||'Research')}</div><h2 class="entry-title">${e(r.question||r.title)}</h2><p class="entry-subtitle">${e(r.title)}</p><p class="entry-description">${e(r.goal||r.description)}</p><a class="text-link" href="#research/${e(r.id)}">Explore research <span aria-hidden="true">→</span></a>${badge(r)}</article>`;}
 function personCard(p){return `<article class="entry person-entry"><div class="person-head">${avatar(p)}<div><h2 class="entry-title">${e(p.name)} ${badge(p)}</h2></div></div><p class="entry-subtitle">${e(enumLabel(p.role))}</p><p class="entry-description">${e(p.research)}</p><a class="text-link" href="#people/${e(p.id)}">View profile <span aria-hidden="true">→</span></a></article>`;}
-function paperCard(p){const metric=journalMetric(p),article=paperArticleURL(p),keywords=keywordList(p.keywords);return `<article class="entry record publication-record"><div class="record-meta">${e(p.year)}</div><div class="publication-body"><div class="journal-line"><span>${e(p.venue)}</span>${metric.source?`<a class="if-value" href="${e(metric.source)}" target="_blank" rel="noopener noreferrer" aria-label="${e(metric.label+' · manually entered')}">${e(metric.label)}</a>`:`<span class="if-value ${metric.label==='IF —'?'unavailable':''}" aria-label="${e(metric.label)}">${e(metric.label)}</span>`}${specialNoteMarkup(p)}</div><h2 class="entry-title"><a href="#publications/${e(p.id)}">${e(p.title)}</a> ${badge(p)}</h2><p class="publication-authors">${renderAuthors(p)}</p></div><div class="publication-keywords">${keywords.map(k=>`<span>${e(k)}</span>`).join('')}</div><div class="article-actions">${article?`<a href="${e(article)}" target="_blank" rel="noopener noreferrer">View article ↗</a>`:'<span class="unavailable" aria-disabled="true" aria-label="Article link not provided">View article ↗</span>'}</div></article>`;}
+function paperCard(p){
+ const metric=journalMetric(p),article=paperArticleURL(p),keywords=keywordList(p.keywords),note=specialNoteMarkup(p),separator='<span class="publication-separator" aria-hidden="true">|</span>';
+ const metricMarkup=metric.source?`<a class="if-value" href="${e(metric.source)}" target="_blank" rel="noopener noreferrer" aria-label="${e(metric.label+' · source')}">${e(metric.label)}</a>`:`<span class="if-value ${metric.label==='IF —'?'unavailable':''}" aria-label="${e(metric.label)}">${e(metric.label)}</span>`;
+ return `<article class="entry record publication-record"><div class="record-meta">${e(p.year)}</div><div class="publication-body"><div class="journal-line publication-meta-heading"><span class="publication-venue">${e(p.venue)}</span> ${separator} ${metricMarkup}${note?` ${separator} ${note}`:''} ${badge(p)}</div><h2 class="entry-title">${e(p.title)}</h2><p class="publication-authors">${renderAuthors(p)}</p>${keywords.length?`<div class="publication-keywords">${keywords.map(k=>`<span>${e(k)}</span>`).join('')}</div>`:''}<div class="article-actions">${article?`<a href="${e(article)}" target="_blank" rel="noopener noreferrer">View article ↗</a>`:'<span class="unavailable" aria-disabled="true" aria-label="Article link not provided">View article ↗</span>'}</div></div></article>`;
+}
 function recordCard(p,index,kind){const patent=kind==='patents';return `<article class="entry record"><div class="record-meta">${e(dateText(p.date))}<span class="type-tag">${e(enumLabel(patent?p.status:p.category))}</span></div><div><h2 class="entry-title">${e(p.title)} ${badge(p)}</h2><p class="entry-description">${e(patent?p.inventors:short(p.body,180))}</p>${patent?`<p class="entry-description">${e(p.number)}</p>`:''}</div><a class="record-open" href="#${kind}/${e(p.id)}">Read more ↗</a></article>`;}
 function publications(isPatent=false){
  const items=isPatent?orderRecords(data.patents,'patents',data.listOrder.patents):papersSorted();
- return `<section class="screen collection-screen publications-page">${head(menuLabel('publications'),'Research articles and intellectual property.',tabs([['publications','Papers'],['patents','Patents']],isPatent?'patents':'publications'))}${isPatent?'':coverGallery()}<div class="publication-list-heading"><h2>${isPatent?'Patents':'Publications'}</h2>${isPatent?'':'<p>IF values are entered manually; reference years are shown when provided.</p>'}</div><div class="items list">${items.length?items.map(p=>isPatent?recordCard(p,0,'patents'):paperCard(p)).join(''):'<p class="empty">New records will appear here.</p>'}</div>${items.some(p=>p.isExample)?'<p class="page-example">Marked records and concept covers are fictional examples.</p>':''}</section>`;
+ return `<section class="screen collection-screen publications-page">${head(menuLabel('publications'),'Research articles and intellectual property.',tabs([['publications','Papers'],['patents','Patents']],isPatent?'patents':'publications'))}${isPatent?'':coverGallery()}<div class="publication-list-heading"><h2>${isPatent?'Patents':'Publications'}</h2></div><div class="items list">${items.length?items.map(p=>isPatent?recordCard(p,0,'patents'):paperCard(p)).join(''):'<p class="empty">New records will appear here.</p>'}</div>${items.some(p=>p.isExample)?'<p class="page-example">Marked records and concept covers are fictional examples.</p>':''}</section>`;
 }
 function joinUs(){
  const j=data.join,positions=data.positions.filter(p=>p.visible),email=j.email||data.contact.email;
@@ -111,7 +115,7 @@ function render(){
  else if(route==='join')body=joinUs();
  else if(route==='contact')body=contact();
  else if(route==='events')body=collection(menuLabel('news'),'Lab notes, milestones, seminars and gatherings.',newsSorted(),(p,i)=>recordCard(p,i,'news'),'',true);
- else if(id&&['research','people','publications','patents','news'].includes(route))body=detail(route,id);
+ else if(id&&['research','people','patents','news'].includes(route))body=detail(route,id);
  else if(route==='research')body=collection(menuLabel('research'),'Materials design, electrochemistry and integrated devices.',data.research,researchCard);
  else if(route==='people')body=members();
  else if(route==='publications'||route==='patents')body=publications(route==='patents');
