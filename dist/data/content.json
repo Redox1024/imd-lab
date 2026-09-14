@@ -2168,6 +2168,31 @@
       "code": "",
       "isExample": false,
       "selectedForPI": false
+    },
+    {
+      "id": "paper-e27cae530a6573f6",
+      "doi": "https://doi.org/10.3390/fib14040042",
+      "title": "Self-Reinforced Aramid Composites as Flame-Retardant Separators with Lithium-Ion Conduction",
+      "authors": "Se Jin Kim, So Hee Shin, Dong Ok Shin, Won Jun Lee",
+      "authorRoles": [],
+      "venue": "Fibers",
+      "year": 2026,
+      "impactFactor": "4.2",
+      "metricYear": 2025,
+      "metricSource": "https://www.mdpi.com/journal/fibers",
+      "showSpecialNote": false,
+      "specialNote": "",
+      "type": "저널",
+      "keywords": "Aramid composites; Flame-retardant separators; Lithium-ion conduction",
+      "issn": "2079-6439",
+      "articleUrl": "https://doi.org/10.3390/fib14040042",
+      "importNote": "Scholar export export-122; bibliographic metadata verified with Crossref. Included at the user’s request; Fibers is indexed in ESCI. Keywords suggested from the title; editable.",
+      "sourceHash": "",
+      "details": "14 (4) Article 42",
+      "pdf": "",
+      "code": "",
+      "isExample": false,
+      "selectedForPI": false
     }
   ],
   "journals": [
