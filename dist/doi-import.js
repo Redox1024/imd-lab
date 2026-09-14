@@ -1,5 +1,6 @@
 import {paperFromCrossref,doiValue} from './publication-data.js';
 import {safeURL} from './schema.js';
+import {normalizeAuthorRoles} from './author-roles.js';
 
 // Only a DOI or a DOI resolver URL is accepted; other text stays editable.
 export function normalizeDOI(value){
@@ -55,6 +56,8 @@ export function mergeDOIFields(current,incoming){
  for(const key of ['title','authors','venue','year','type','doi','articleUrl','issn','details']){
   const value=incoming[key];if(value!==''&&value!==undefined&&value!==null)next[key]=value;
  }
+ // Keep manual roles only when their exact author identity remains present.
+ next.authorRoles=normalizeAuthorRoles(current.authorRoles,next.authors);
  if(!String(current.keywords||'').trim())next.keywords=incoming.keywords||'';
  next.isExample=false;
  const note=incoming.importNote||'Bibliographic fields filled from DOI.';

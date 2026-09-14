@@ -554,6 +554,26 @@ html.lab-site{scrollbar-gutter:stable}
 .site-page .brand-mark:not([hidden]) + .wordmark{margin-inline-start:-8px}
 @media(max-width:640px){.site-page .brand-mark:not([hidden]) + .wordmark{margin-inline-start:-4px}}
 
+/* Author selections stay alongside the full author list. */
+.author-role-picker{min-width:0;margin:14px 0 0;padding:14px 16px;border:1px solid var(--line);border-radius:3px}
+.author-role-picker legend{font-size:14px;font-weight:600;padding-inline:5px;color:var(--navy)}
+.author-role-row{padding:10px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(150px,1fr) auto;gap:12px;align-items:center}
+.author-role-name{font-size:14px;overflow-wrap:anywhere}
+.author-role-options{display:flex;flex-wrap:wrap;gap:8px 16px}
+.field .author-role-options label{display:flex;align-items:center;gap:7px;font-size:12px;cursor:pointer;min-height:36px}
+.field .author-role-options input[type=checkbox]{flex:none;width:19px;height:19px;margin:0;padding:0}
+.author-role-result{margin-top:16px}
+.author-role-result>span,.author-role-empty{font-size:12px;color:var(--muted)}
+.author-role-result p{font-size:15px;line-height:1.9;overflow-wrap:anywhere;margin:7px 0}
+.paper-author strong{font-weight:700}
+.paper-author sup{font-size:.75em;line-height:0;vertical-align:super;margin-left:1px}
+.publication-detail-title{margin-bottom:.7em}
+.publication-detail-authors{margin-bottom:.35em;overflow-wrap:anywhere}
+.author-legend{font-size:12px;color:var(--muted);margin-block:.35em 1em}
+.live-card-authors{flex-shrink:1;min-height:0;max-height:42%;overflow:auto;margin-bottom:14px}
+.live-card-authors .publication-authors{font-size:13px;line-height:1.8;overflow-wrap:anywhere}
+.live-card-authors .author-legend{font-size:11px;margin-bottom:0}
+@media(max-width:760px){.author-role-row{grid-template-columns:minmax(0,1fr);gap:4px}.author-role-options{gap:4px 14px}.field .author-role-options label{min-height:44px}.author-role-picker{padding:12px}}
 /* DOI lookup stays next to the paper fields and manual-entry fallback. */
 .doi-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}
 .doi-actions .doi-fill{background:var(--navy);border-color:var(--navy);color:white}
