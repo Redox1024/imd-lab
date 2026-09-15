@@ -1,8 +1,8 @@
-import {escapeHTML as e,safeImage,destinationOptions,enumLabel} from './schema.js?v=20260915-pi1';
-import {journalMetric,publicationSpecialNote} from './publication-data.js?v=20260915-pi1';
-import {renderAuthors,authorLegend} from './author-roles.js?v=20260915-pi1';
-import {textPages} from './pagination.js?v=20260915-pi1';
-import {orderRecords} from './list-order.js?v=20260915-pi1';
+import {escapeHTML as e,safeImage,destinationOptions,enumLabel} from './schema.js?v=20260915-pi3';
+import {journalMetric,publicationSpecialNote} from './publication-data.js?v=20260915-pi3';
+import {renderAuthors,authorLegend} from './author-roles.js?v=20260915-pi3';
+import {textPages} from './pagination.js?v=20260915-pi3';
+import {orderRecords} from './list-order.js?v=20260915-pi3';
 export function liveCardData(section,record,site,content){
  const r=record||{},title=r.question||r.label||r.title||r.name||r.headline||'Untitled draft';
  const sections={site:'LAB SETTINGS',home:'HOME INTRO',homeSlides:'HOME IMAGES',homeNotes:'HOME NOTES',navigation:'NAVIGATION',pages:'EXTRA PAGES',professor:'PI',research:'RESEARCH LENS',people:'MEMBERS',covers:'COVER GALLERY',publications:'PAPERS',patents:'PATENTS',news:'LAB NOTES',events:'ARCHIVED EVENTS',join:'JOIN US',positions:'OPEN POSITIONS',contact:'CONTACT'};

@@ -625,10 +625,10 @@ html.lab-site{scrollbar-gutter:stable}
 .site-page .pi-affiliation{white-space:pre-line;font-size:16px;line-height:1.9;color:#566f7e;margin-top:14px}
 .site-page .pi-profile-details .pi-summary-bio{font-size:16px;line-height:1.85;margin-top:18px}
 .site-page .pi-research-statement{font-size:16px;line-height:1.85;white-space:pre-line;color:#566f7e;margin-top:18px}
-.site-page .pi-profile-details .pi-contact-row{display:flex;flex-wrap:wrap;gap:16px 34px;margin-top:24px}
+.site-page .pi-profile-details .pi-contact-row{display:grid;grid-template-columns:max-content max-content minmax(0,1fr) max-content;align-items:start;gap:16px 20px;margin-top:24px}
 .site-page .pi-profile-details .pi-contact-row>div{font-size:15px;min-width:0;max-width:100%;gap:4px}
-.site-page .pi-profile-details .pi-contact-row .pi-contact-address{flex-basis:100%;white-space:pre-line}
-.site-page .pi-contact-address address{font-style:normal;margin:0;overflow-wrap:anywhere}
+.site-page .pi-profile-details .pi-contact-row .pi-contact-address{white-space:normal}
+.site-page .pi-contact-address address{font-style:normal;margin:0;word-break:keep-all;overflow-wrap:break-word}
 .site-page .pi-profile-details .pi-history-section{padding:28px 0}
 .site-page .pi-profile-details .pi-history-section h2{font-size:23px;margin-bottom:18px}
 .site-page .pi-profile-details .pi-timeline li{grid-template-columns:145px minmax(0,1fr);column-gap:20px;row-gap:4px}
@@ -640,3 +640,13 @@ html.lab-site{scrollbar-gutter:stable}
 .site-page .pi-profile-layout+.pi-selected-section{margin-top:36px;border-top:1px solid #c6d3da}
 @media(max-width:1000px){.site-page .pi-profile-layout{grid-template-columns:240px minmax(0,1fr);column-gap:34px}.site-page .pi-profile-details .pi-timeline li{grid-template-columns:1fr;gap:3px}.site-page .pi-profile-details .pi-timeline .pi-period{font-size:13px}}
 @media(max-width:760px){.site-page .pi-profile-layout{grid-template-columns:minmax(0,1fr);gap:28px}.site-page .pi-profile-layout>.pi-portrait{width:220px;max-width:100%}.site-page .pi-profile-details .pi-summary-heading h2{font-size:26px}.site-page .pi-profile-details .pi-current-position{font-size:17px}.site-page .pi-affiliation{font-size:15px}.site-page .pi-profile-details .pi-contact-row{gap:16px 26px}.site-page .pi-profile-details .pi-history-section h2{font-size:22px}.site-page .pi-profile-details .pi-timeline strong,.site-page .pi-research-interests{font-size:15px}.site-page .pi-profile-layout+.pi-selected-section{margin-top:28px}}
+
+/* Group appointments by institution and keep the four PI contacts aligned. */
+.site-page .pi-affiliations{display:grid;gap:18px;margin-top:18px}
+.site-page .pi-affiliation-group{min-width:0}
+.site-page .pi-affiliation-name{font-size:17px;line-height:1.8;font-weight:600;color:#31536a}
+.site-page .pi-affiliation-units{font-size:15px;line-height:1.9;color:#566f7e;white-space:pre-line;margin:6px 0 0 12px;padding-left:14px;border-left:2px solid #d9e2e7}
+.site-page .pi-profile-details .pi-timeline .pi-academic-honor{font-weight:700;font-style:italic;font-synthesis:style}
+@media(max-width:959px){.site-page .pi-profile-details .pi-contact-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px}}
+@media(max-width:760px){.site-page .pi-affiliation-name{font-size:16px}.site-page .pi-affiliation-units{font-size:15px}}
+@media(max-width:480px){.site-page .pi-profile-details .pi-contact-row{grid-template-columns:minmax(0,1fr);gap:16px}}

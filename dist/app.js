@@ -1,9 +1,9 @@
-import {escapeHTML as e,safeURL,safeImage,hasExamples,validateContent,safeDestination,enumLabel,logoDesigns} from './schema.js?v=20260915-pi1';
-import {mountHeroCarousel} from './hero-carousel.js?v=20260915-pi1';
-import {orderRecords} from './list-order.js?v=20260915-pi1';
-import {paperArticleURL} from './doi-import.js?v=20260915-pi1';
-import {journalMetric,keywordList,publicationSpecialNote} from './publication-data.js?v=20260915-pi1';
-import {renderAuthors,authorLegend} from './author-roles.js?v=20260915-pi1';
+import {escapeHTML as e,safeURL,safeImage,hasExamples,validateContent,safeDestination,enumLabel,logoDesigns} from './schema.js?v=20260915-pi3';
+import {mountHeroCarousel} from './hero-carousel.js?v=20260915-pi3';
+import {orderRecords} from './list-order.js?v=20260915-pi3';
+import {paperArticleURL} from './doi-import.js?v=20260915-pi3';
+import {journalMetric,keywordList,publicationSpecialNote} from './publication-data.js?v=20260915-pi3';
+import {renderAuthors,authorLegend} from './author-roles.js?v=20260915-pi3';
 let destroyHeroCarousel=null;
 let data,navPage=0,readingText='',routeKey='home',coverPage=0;
 const main=document.querySelector('#main');
@@ -55,7 +55,14 @@ function home(){
  <section class="home-papers-section">${sectionHeading('publications','Recent work')}<div class="home-paper-list">${papersSorted().slice(0,3).map(p=>`<a class="home-paper" href="#publications"><span>${e(p.year)}</span><div><p class="home-journal">${e(p.venue)} <span>${e(journalMetric(p).label)}</span>${specialNoteMarkup(p)}</p><h3>${e(p.title)}</h3><p class="home-authors">${renderAuthors(p)}</p>${keywordList(p.keywords).length?`<div class="publication-keywords">${keywordList(p.keywords).map(k=>`<span>${e(k)}</span>`).join('')}</div>`:''}${badge(p)}</div></a>`).join('')||'<p class="empty">Publications will appear here.</p>'}</div></section>
  </div></section>`;
 }
-function academicRows(text){return `<ul class="pi-timeline">${text.split('\n').map(line=>line.trim()).filter(Boolean).map(line=>{const parts=line.split('|').map(part=>part.trim());return parts.length>1?`<li><span class="pi-period">${e(parts[0])}</span><div><strong>${e(parts[1])}</strong>${parts.slice(2).some(Boolean)?`<span class="pi-institution">${e(parts.slice(2).filter(Boolean).join(' · '))}</span>`:''}</div></li>`:`<li><div><span class="pi-institution">${e(line)}</span></div></li>`;}).join('')}</ul>`;}
+function academicRows(text,highlightHonor=false){
+ const academicText=value=>{const escaped=e(value);return highlightHonor?escaped.replace(/\bSumma Cum Laude\b/gi,match=>`<em class="pi-academic-honor">${match}</em>`):escaped;};
+ return `<ul class="pi-timeline">${text.split('\n').map(line=>line.trim()).filter(Boolean).map(line=>{const parts=line.split('|').map(part=>part.trim());return parts.length>1?`<li><span class="pi-period">${e(parts[0])}</span><div><strong>${academicText(parts[1])}</strong>${parts.slice(2).some(Boolean)?`<span class="pi-institution">${academicText(parts.slice(2).filter(Boolean).join(' · '))}</span>`:''}</div></li>`:`<li><div><span class="pi-institution">${academicText(line)}</span></div></li>`;}).join('')}</ul>`;
+}
+function affiliationMarkup(text){
+ const groups=String(text||'').trim().split(/\r?\n\s*\r?\n/).map(group=>group.split(/\r?\n/).map(line=>line.trim()).filter(Boolean)).filter(group=>group.length);
+ return groups.length?`<div class="pi-affiliations">${groups.map(([name,...units])=>`<div class="pi-affiliation-group"><p class="pi-affiliation-name">${e(name)}</p>${units.length?`<p class="pi-affiliation-units">${e(units.join('\n'))}</p>`:''}</div>`).join('')}</div>`:'';
+}
 function phoneLink(value){const number=String(value||'').replace(/[\s().-]/g,'');return /^\+?\d{5,20}$/.test(number)?`<a href="tel:${e(number)}">${e(value)}</a>`:`<span>${e(value||'To be added')}</span>`;}
 function about(){
  const p=data.professor,selected=papersSorted().filter(p=>p.selectedForPI),photo=safeImage(p.photo);
@@ -68,13 +75,13 @@ function about(){
   safeURL(p.orcid)?`<div><span>ORCID</span>${external(p.orcid,'ORCID')}</div>`:'',
   safeURL(p.cv)?`<div><span>Curriculum vitae</span>${external(p.cv,'View CV')}</div>`:''
  ].filter(Boolean).join('');
- const history=blocks.map(([title,text])=>`<section class="pi-history-section"><h2>${e(title)}</h2>${title==='Research Interests'?`<ul class="pi-research-interests">${text.split('\n').map(line=>line.trim()).filter(Boolean).map(line=>`<li>${e(line)}</li>`).join('')}</ul>`:academicRows(text)}</section>`).join('');
+ const history=blocks.map(([title,text])=>`<section class="pi-history-section"><h2>${e(title)}</h2>${title==='Research Interests'?`<ul class="pi-research-interests">${text.split('\n').map(line=>line.trim()).filter(Boolean).map(line=>`<li>${e(line)}</li>`).join('')}</ul>`:academicRows(text,title==='Education')}</section>`).join('');
  return `<section class="screen about-page about-stacked">${head(data.site.aboutTitle||'Meet the PI',data.site.aboutSubtitle)}
  <div class="pi-profile-layout">
   <figure class="pi-portrait">${photo?`<img src="${e(photo)}" alt="${e(p.name||p.nameEn||'Principal investigator')}" width="448" height="564">`:'<div class="pi-portrait-empty"><span>PI</span><span>Portrait to be added</span></div>'}</figure>
   <div class="pi-profile-details">
    <section class="pi-summary"><div class="pi-summary-heading"><div><p class="eyebrow">Principal investigator</p><h2>${e(p.name||p.nameEn||'PI name to be added')}</h2>${p.position?`<p class="pi-current-position">${e(p.position)}</p>`:''}</div></div>
-    ${p.affiliation?`<p class="pi-affiliation">${e(p.affiliation)}</p>`:''}
+    ${affiliationMarkup(p.affiliation)}
     ${p.bio?`<p class="pi-summary-bio">${e(p.bio)}</p>`:''}
     ${p.statement?`<p class="pi-research-statement">${e(p.statement)}</p>`:''}
     ${contact?`<div class="pi-contact-row">${contact}</div>`:''}

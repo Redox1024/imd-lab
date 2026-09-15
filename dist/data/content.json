@@ -143,7 +143,7 @@
   "professor": {
     "name": "Dong Ok Shin (신동옥), Ph.D.",
     "nameEn": "Dong Ok Shin, Ph.D.",
-    "position": "Director / Principal Researcher",
+    "position": "Director / Principal Researcher · Professor",
     "bio": "",
     "statement": "",
     "email": "doshin@etri.re.kr",
@@ -157,8 +157,8 @@
     "scholar": "https://scholar.google.com/citations?user=Lj5S040AAAAJ&hl=ko",
     "orcid": "",
     "isExample": false,
-    "affiliation": "Future Electronics Convergence Materials Research Section (Battery part)\nAdvanced Materials and Components Research Division\nElectronics and Telecommunications Research Institute (ETRI)\nProfessor, University of Science and Technology (UST)",
-    "address": "218 Gajeong-ro, Yuseong-gu, Daejeon, Republic of Korea"
+    "affiliation": "Electronics and Telecommunications Research Institute (ETRI)\nFuture Electronics Convergence Materials Research Section (Battery part)\n\nUniversity of Science and Technology (UST)",
+    "address": "Room 501, Building 3, ETRI (ETRI 3동 건물 501호)"
   },
   "research": [
     {
