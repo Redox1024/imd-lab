@@ -611,3 +611,32 @@ html.lab-site{scrollbar-gutter:stable}
 @media(max-width:640px){.site-page .publication-record{grid-template-columns:36px minmax(0,1fr);column-gap:12px;row-gap:0;padding-block:18px}.site-page .publication-record .record-meta{grid-row:1}.site-page .publication-record .publication-keywords span{font-size:12px}.site-page .publication-record .article-actions{font-size:13px}.site-page .home-refined .intro-actions{gap:12px 24px}.site-page .home-refined .intro-actions a{padding:7px 0;white-space:nowrap;min-height:44px}.site-page .home-refined .intro-actions a .shortcut-arrow{display:inline-block}}
 @media(max-width:480px){.site-page .publication-record .publication-footer{grid-template-columns:minmax(0,1fr)}.site-page .publication-record .article-actions{grid-column:1;grid-row:2}}
 @media(max-width:380px){.site-page .home-refined .intro-actions{gap:10px 20px}}
+
+/* PI portrait stays to the left of the complete professional profile. */
+.site-page .pi-profile-layout{display:grid;grid-template-columns:280px minmax(0,1fr);column-gap:48px;align-items:start}
+.site-page .pi-profile-layout>.pi-portrait{display:block;width:100%;max-width:280px;margin:0;flex:none}
+.site-page .pi-profile-layout>.pi-portrait>img{display:block;width:100%;height:auto;aspect-ratio:448/564;object-fit:contain;object-position:center;border-radius:0;background:transparent}
+.site-page .pi-profile-layout>.pi-portrait>.pi-portrait-empty{height:auto;aspect-ratio:448/564;border-radius:0}
+.site-page .pi-profile-details{min-width:0}
+.site-page .pi-profile-details .pi-summary{padding:0 0 28px}
+.site-page .pi-profile-details .pi-summary-heading{display:block}
+.site-page .pi-profile-details .pi-summary-heading h2{font-size:28px;letter-spacing:-.025em;line-height:1.4}
+.site-page .pi-profile-details .pi-current-position{font-size:18px;margin-top:14px}
+.site-page .pi-affiliation{white-space:pre-line;font-size:16px;line-height:1.9;color:#566f7e;margin-top:14px}
+.site-page .pi-profile-details .pi-summary-bio{font-size:16px;line-height:1.85;margin-top:18px}
+.site-page .pi-research-statement{font-size:16px;line-height:1.85;white-space:pre-line;color:#566f7e;margin-top:18px}
+.site-page .pi-profile-details .pi-contact-row{display:flex;flex-wrap:wrap;gap:16px 34px;margin-top:24px}
+.site-page .pi-profile-details .pi-contact-row>div{font-size:15px;min-width:0;max-width:100%;gap:4px}
+.site-page .pi-profile-details .pi-contact-row .pi-contact-address{flex-basis:100%;white-space:pre-line}
+.site-page .pi-contact-address address{font-style:normal;margin:0;overflow-wrap:anywhere}
+.site-page .pi-profile-details .pi-history-section{padding:28px 0}
+.site-page .pi-profile-details .pi-history-section h2{font-size:23px;margin-bottom:18px}
+.site-page .pi-profile-details .pi-timeline li{grid-template-columns:145px minmax(0,1fr);column-gap:20px;row-gap:4px}
+.site-page .pi-profile-details .pi-timeline strong{font-size:16px;line-height:1.75}
+.site-page .pi-profile-details .pi-timeline .pi-institution{font-size:14px;line-height:1.8}
+.site-page .pi-research-interests{padding-left:19px;margin:0;display:grid;gap:9px;color:#566f7e;font-size:16px;line-height:1.8}
+.site-page .pi-research-interests li{padding-left:3px;overflow-wrap:anywhere}
+.site-page .pi-profile-details .pi-history-section:last-child{border-bottom:0;padding-bottom:0}
+.site-page .pi-profile-layout+.pi-selected-section{margin-top:36px;border-top:1px solid #c6d3da}
+@media(max-width:1000px){.site-page .pi-profile-layout{grid-template-columns:240px minmax(0,1fr);column-gap:34px}.site-page .pi-profile-details .pi-timeline li{grid-template-columns:1fr;gap:3px}.site-page .pi-profile-details .pi-timeline .pi-period{font-size:13px}}
+@media(max-width:760px){.site-page .pi-profile-layout{grid-template-columns:minmax(0,1fr);gap:28px}.site-page .pi-profile-layout>.pi-portrait{width:220px;max-width:100%}.site-page .pi-profile-details .pi-summary-heading h2{font-size:26px}.site-page .pi-profile-details .pi-current-position{font-size:17px}.site-page .pi-affiliation{font-size:15px}.site-page .pi-profile-details .pi-contact-row{gap:16px 26px}.site-page .pi-profile-details .pi-history-section h2{font-size:22px}.site-page .pi-profile-details .pi-timeline strong,.site-page .pi-research-interests{font-size:15px}.site-page .pi-profile-layout+.pi-selected-section{margin-top:28px}}

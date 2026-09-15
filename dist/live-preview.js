@@ -1,17 +1,17 @@
-import {escapeHTML as e,safeImage,destinationOptions,enumLabel} from './schema.js?v=20260914-paper5';
-import {journalMetric,publicationSpecialNote} from './publication-data.js?v=20260914-paper5';
-import {renderAuthors,authorLegend} from './author-roles.js?v=20260914-paper5';
-import {textPages} from './pagination.js?v=20260914-paper5';
-import {orderRecords} from './list-order.js?v=20260914-paper5';
+import {escapeHTML as e,safeImage,destinationOptions,enumLabel} from './schema.js?v=20260915-pi1';
+import {journalMetric,publicationSpecialNote} from './publication-data.js?v=20260915-pi1';
+import {renderAuthors,authorLegend} from './author-roles.js?v=20260915-pi1';
+import {textPages} from './pagination.js?v=20260915-pi1';
+import {orderRecords} from './list-order.js?v=20260915-pi1';
 export function liveCardData(section,record,site,content){
  const r=record||{},title=r.question||r.label||r.title||r.name||r.headline||'Untitled draft';
- const sections={site:'LAB SETTINGS',home:'HOME INTRO',homeSlides:'HOME IMAGES',homeNotes:'HOME NOTES',navigation:'NAVIGATION',pages:'EXTRA PAGES',professor:'MEET PI',research:'RESEARCH LENS',people:'MEMBERS',covers:'COVER GALLERY',publications:'PAPERS',patents:'PATENTS',news:'LAB NOTES',events:'ARCHIVED EVENTS',join:'JOIN US',positions:'OPEN POSITIONS',contact:'CONTACT'};
+ const sections={site:'LAB SETTINGS',home:'HOME INTRO',homeSlides:'HOME IMAGES',homeNotes:'HOME NOTES',navigation:'NAVIGATION',pages:'EXTRA PAGES',professor:'PI',research:'RESEARCH LENS',people:'MEMBERS',covers:'COVER GALLERY',publications:'PAPERS',patents:'PATENTS',news:'LAB NOTES',events:'ARCHIVED EVENTS',join:'JOIN US',positions:'OPEN POSITIONS',contact:'CONTACT'};
  let text='',subtitle='',image='';
  if(section==='site'){text=[r.nameEn,r.affiliation,r.introduction,r.aboutTitle,r.aboutSubtitle,r.institution,r.institutionUrl].filter(Boolean).join('\n\n');subtitle=r.shortName;}
  else if(section==='home'){text=[r.headline,r.description,[r.primaryLabel,r.secondaryLabel,r.tertiaryLabel].filter(Boolean).join(' · ')].filter(Boolean).join('\n\n');subtitle=r.eyebrow;image=r.imageStyle==='소재 이미지'?safeImage(content?.homeSlides?.find(slide=>slide.visible)?.image):'';}
  else if(section==='homeSlides'){text=[r.caption,r.imageAlt,r.visible?'Visible in rotation':'Hidden from rotation'].filter(Boolean).join('\n\n');subtitle='Home image';image=safeImage(r.image);}
  else if(section==='navigation'){text='Destination: '+(destinationOptions(content||{}).find(([v])=>v===r.target)?.[1]||'Choose a page');subtitle=r.visible?'Visible in menu':'Hidden from menu';}
- else if(section==='homeNotes'||section==='pages'){text=r.body;subtitle=r.subtitle||(section==='homeNotes'?'Archived home note':'');} else if(section==='professor'){const selected=orderRecords(content?.publications||[],'publications',content?.listOrder?.publications).filter(p=>p.selectedForPI);text=[r.bio,r.email,r.phone,r.scholar,r.career?'Research Experience\n'+r.career:'',r.education?'Education\n'+r.education:'',r.awards?'Honors & Awards\n'+r.awards:'',selected.length?'Selected Publications\n'+selected.map(p=>p.title).join('\n'):''].filter(Boolean).join('\n\n');subtitle=r.position;image=safeImage(r.photo);}
+ else if(section==='homeNotes'||section==='pages'){text=r.body;subtitle=r.subtitle||(section==='homeNotes'?'Archived home note':'');} else if(section==='professor'){const selected=orderRecords(content?.publications||[],'publications',content?.listOrder?.publications).filter(p=>p.selectedForPI);text=[r.affiliation,r.bio,r.statement,r.email,r.phone,r.address,r.scholar,r.orcid,r.cv,r.career?'Work Experience\n'+r.career:'',r.education?'Education\n'+r.education:'',r.researchInterests?'Research Interests\n'+r.researchInterests:'',r.awards?'Honors & Awards\n'+r.awards:'',selected.length?'Selected Publications\n'+selected.map(p=>p.title).join('\n'):''].filter(Boolean).join('\n\n');subtitle=r.position;image=safeImage(r.photo);}
  else if(section==='research'){text=[r.title,r.goal,r.methods?'Approach\n'+r.methods:'',r.description].filter(Boolean).join('\n\n');subtitle=r.lensLabel||r.subtitle;}
  else if(section==='people'){text=[r.research,r.period,r.email].filter(Boolean).join('\n\n');subtitle=[r.membership,enumLabel(r.role),r.nameEn].filter(Boolean).join(' · ');image=safeImage(r.photo);}
  else if(section==='covers'){text=[r.title,r.articleUrl,r.visible?'Visible in gallery':'Hidden from gallery',r.isExample?'Fictional concept cover':''].filter(Boolean).join('\n\n');subtitle=[r.venue,r.year].filter(Boolean).join(' · ');image=safeImage(r.image);}

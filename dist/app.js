@@ -1,13 +1,13 @@
-import {escapeHTML as e,safeURL,safeImage,hasExamples,validateContent,safeDestination,enumLabel,logoDesigns} from './schema.js?v=20260914-paper5';
-import {mountHeroCarousel} from './hero-carousel.js?v=20260914-paper5';
-import {orderRecords} from './list-order.js?v=20260914-paper5';
-import {paperArticleURL} from './doi-import.js?v=20260914-paper5';
-import {journalMetric,keywordList,publicationSpecialNote} from './publication-data.js?v=20260914-paper5';
-import {renderAuthors,authorLegend} from './author-roles.js?v=20260914-paper5';
+import {escapeHTML as e,safeURL,safeImage,hasExamples,validateContent,safeDestination,enumLabel,logoDesigns} from './schema.js?v=20260915-pi1';
+import {mountHeroCarousel} from './hero-carousel.js?v=20260915-pi1';
+import {orderRecords} from './list-order.js?v=20260915-pi1';
+import {paperArticleURL} from './doi-import.js?v=20260915-pi1';
+import {journalMetric,keywordList,publicationSpecialNote} from './publication-data.js?v=20260915-pi1';
+import {renderAuthors,authorLegend} from './author-roles.js?v=20260915-pi1';
 let destroyHeroCarousel=null;
 let data,navPage=0,readingText='',routeKey='home',coverPage=0;
 const main=document.querySelector('#main');
-const labels={home:'Home',about:'About',research:'Research',people:'Members',publications:'Publications',patents:'Patents',news:'News',events:'News',join:'Join Us',contact:'Contact'};
+const labels={home:'Home',about:'PI',research:'Research',people:'Members',publications:'Publications',patents:'Patents',news:'News',events:'News',join:'Join Us',contact:'Contact'};
 const badge=record=>record?.isExample?'<span class="example-badge">Example</span>':'';
 const specialNoteMarkup=paper=>{const note=publicationSpecialNote(paper);return note?`<span class="paper-special-note">${e(note)}</span>`:'';};
 const short=(value,max=160)=>String(value||'').length>max?String(value).slice(0,max).trimEnd()+'…':String(value||'');
@@ -58,8 +58,33 @@ function home(){
 function academicRows(text){return `<ul class="pi-timeline">${text.split('\n').map(line=>line.trim()).filter(Boolean).map(line=>{const parts=line.split('|').map(part=>part.trim());return parts.length>1?`<li><span class="pi-period">${e(parts[0])}</span><div><strong>${e(parts[1])}</strong>${parts.slice(2).some(Boolean)?`<span class="pi-institution">${e(parts.slice(2).filter(Boolean).join(' · '))}</span>`:''}</div></li>`:`<li><div><span class="pi-institution">${e(line)}</span></div></li>`;}).join('')}</ul>`;}
 function phoneLink(value){const number=String(value||'').replace(/[\s().-]/g,'');return /^\+?\d{5,20}$/.test(number)?`<a href="tel:${e(number)}">${e(value)}</a>`:`<span>${e(value||'To be added')}</span>`;}
 function about(){
- const p=data.professor,selected=papersSorted().filter(p=>p.selectedForPI),blocks=[['Research Experience',p.career],['Education',p.education],['Honors & Awards',p.awards]];
- return `<section class="screen about-page about-stacked">${head(data.site.aboutTitle||'Meet the PI',data.site.aboutSubtitle)}<section class="pi-summary"><div class="pi-summary-heading"><div><p class="eyebrow">Principal investigator</p><h2>${e(p.name||p.nameEn||'PI name to be added')}</h2><p class="pi-current-position">${e(p.position||'Current position to be added')}</p></div><figure class="pi-portrait">${safeImage(p.photo)?`<img src="${e(safeImage(p.photo))}" alt="${e(p.name||'Principal investigator')}">`:'<div class="pi-portrait-empty"><span>PI</span><span>Portrait</span></div>'}<figcaption>${safeImage(p.photo)?'Principal investigator':'Photo to be added'}</figcaption></figure></div>${p.bio?`<p class="pi-summary-bio">${e(p.bio)}</p>`:''}<div class="pi-contact-row"><div><span>Email</span>${p.email?emailLink(p.email):'<span>To be added</span>'}</div><div><span>Phone</span>${phoneLink(p.phone)}</div><div><span>Research profile</span>${safeURL(p.scholar)?external(p.scholar,'Google Scholar'):'<span class="contact-pending">Google Scholar · Link to be added</span>'}</div></div>${p.isExample?'<p class="pi-example-note">Example profile · Replace the name, position and biography with verified PI information.</p>':''}</section><div class="pi-history-stack">${blocks.map(([title,text])=>`<section class="pi-history-section"><h2>${e(title)}</h2>${text?academicRows(text):'<p class="empty">Details will be added.</p>'}</section>`).join('')}<section class="pi-selected-section"><div class="home-section-heading"><h2>Selected Publications</h2>${sectionLink('publications','All publications')}</div><div class="items list">${selected.length?selected.map(paperCard).join(''):'<p class="empty">Selected publications will be added.</p>'}</div></section></div>${p.isExample?'<p class="page-example">The profile, career history, education, awards and marked publications are fictional examples.</p>':''}</section>`;
+ const p=data.professor,selected=papersSorted().filter(p=>p.selectedForPI),photo=safeImage(p.photo);
+ const blocks=[['Work Experience',p.career],['Education',p.education],['Research Interests',p.researchInterests],['Honors & Awards',p.awards]].filter(([,text])=>text?.trim());
+ const contact=[
+  p.email?`<div><span>Email</span>${emailLink(p.email)}</div>`:'',
+  p.phone?`<div><span>Phone</span>${phoneLink(p.phone)}</div>`:'',
+  p.address?`<div class="pi-contact-address"><span>Address</span><address>${e(p.address)}</address></div>`:'',
+  safeURL(p.scholar)?`<div><span>Research profile</span>${external(p.scholar,'Google Scholar')}</div>`:'',
+  safeURL(p.orcid)?`<div><span>ORCID</span>${external(p.orcid,'ORCID')}</div>`:'',
+  safeURL(p.cv)?`<div><span>Curriculum vitae</span>${external(p.cv,'View CV')}</div>`:''
+ ].filter(Boolean).join('');
+ const history=blocks.map(([title,text])=>`<section class="pi-history-section"><h2>${e(title)}</h2>${title==='Research Interests'?`<ul class="pi-research-interests">${text.split('\n').map(line=>line.trim()).filter(Boolean).map(line=>`<li>${e(line)}</li>`).join('')}</ul>`:academicRows(text)}</section>`).join('');
+ return `<section class="screen about-page about-stacked">${head(data.site.aboutTitle||'Meet the PI',data.site.aboutSubtitle)}
+ <div class="pi-profile-layout">
+  <figure class="pi-portrait">${photo?`<img src="${e(photo)}" alt="${e(p.name||p.nameEn||'Principal investigator')}" width="448" height="564">`:'<div class="pi-portrait-empty"><span>PI</span><span>Portrait to be added</span></div>'}</figure>
+  <div class="pi-profile-details">
+   <section class="pi-summary"><div class="pi-summary-heading"><div><p class="eyebrow">Principal investigator</p><h2>${e(p.name||p.nameEn||'PI name to be added')}</h2>${p.position?`<p class="pi-current-position">${e(p.position)}</p>`:''}</div></div>
+    ${p.affiliation?`<p class="pi-affiliation">${e(p.affiliation)}</p>`:''}
+    ${p.bio?`<p class="pi-summary-bio">${e(p.bio)}</p>`:''}
+    ${p.statement?`<p class="pi-research-statement">${e(p.statement)}</p>`:''}
+    ${contact?`<div class="pi-contact-row">${contact}</div>`:''}
+    ${p.isExample?'<p class="pi-example-note">Example profile · Replace the name, position and biography with verified PI information.</p>':''}
+   </section>
+   ${history?`<div class="pi-history-stack">${history}</div>`:''}
+  </div>
+ </div>
+ ${selected.length?`<section class="pi-selected-section"><div class="home-section-heading"><h2>Selected Publications</h2>${sectionLink('publications','All publications')}</div><div class="items list">${selected.map(paperCard).join('')}</div></section>`:''}
+ ${p.isExample?'<p class="page-example">The profile, career history, education, awards and marked publications are fictional examples.</p>':''}</section>`;
 }
 function footerMarkup(){
  const c=data.contact,s=data.site;
