@@ -625,7 +625,7 @@ html.lab-site{scrollbar-gutter:stable}
 .site-page .pi-affiliation{white-space:pre-line;font-size:16px;line-height:1.9;color:#566f7e;margin-top:14px}
 .site-page .pi-profile-details .pi-summary-bio{font-size:16px;line-height:1.85;margin-top:18px}
 .site-page .pi-research-statement{font-size:16px;line-height:1.85;white-space:pre-line;color:#566f7e;margin-top:18px}
-.site-page .pi-profile-details .pi-contact-row{display:grid;grid-template-columns:max-content max-content minmax(0,1fr) max-content;align-items:start;gap:16px 20px;margin-top:24px}
+.site-page .pi-profile-details .pi-contact-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:start;gap:16px 20px;margin-top:24px}
 .site-page .pi-profile-details .pi-contact-row>div{font-size:15px;min-width:0;max-width:100%;gap:4px}
 .site-page .pi-profile-details .pi-contact-row .pi-contact-address{white-space:normal}
 .site-page .pi-contact-address address{font-style:normal;margin:0;word-break:keep-all;overflow-wrap:break-word}
